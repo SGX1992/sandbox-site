@@ -1,0 +1,1285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SANDBOX — Dubai's VC-backed startup investment program | Oraseya Capital</title>
+<meta name="description" content="SANDBOX is the landmark startup investment program from Oraseya Capital. $150,000 investment, 5 epic months, Dubai. Applications close end of November.">
+<meta name="theme-color" content="#050505">
+<link rel="icon" href="assets/sb-mark.svg?v=1792676642" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────── TOKENS ───────────────────────── */
+:root{
+  --black:#050505; --ink:#0c0c0c; --white:#ffffff; --paper:#f4f1ec;
+  --orange:#FF6200; --orange-2:#EC4313; --peach:#FC9E64; --ember:#7A0A00; --cream:#FFE0CC;
+  --grad:linear-gradient(135deg,#EC4313 0%,#FF6200 45%,#FC9E64 100%);
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,sans-serif;
+  --gutter:clamp(20px,4vw,72px);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --ease-io:cubic-bezier(.65,0,.35,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+html{overflow-x:clip}
+body{
+  background:var(--black);color:var(--white);font-family:var(--font);
+  font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased;
+  overflow-x:clip;cursor:none;
+}
+@media (hover:none){body{cursor:auto}}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:none}
+::selection{background:var(--orange);color:#000}
+
+/* ───────────────────────── TYPE ───────────────────────── */
+.eyebrow{
+  font-weight:300;font-size:clamp(10px,.75vw,12px);letter-spacing:.42em;text-transform:uppercase;
+  color:rgba(255,255,255,.72);display:inline-flex;align-items:center;gap:14px;
+}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--orange)}
+.light .eyebrow{color:rgba(0,0,0,.6)}
+h1,h2,h3{font-weight:800;letter-spacing:-.035em;line-height:.96}
+.h-xl{font-size:clamp(44px,8.6vw,150px)}
+.h-lg{font-size:clamp(38px,6.4vw,104px)}
+.h-md{font-size:clamp(30px,4.2vw,64px)}
+.h-sm{font-size:clamp(22px,2.2vw,32px);letter-spacing:-.02em;line-height:1.1}
+.lead{font-size:clamp(17px,1.35vw,22px);line-height:1.55;font-weight:400;color:rgba(255,255,255,.78)}
+.light .lead{color:rgba(0,0,0,.72)}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.outline{-webkit-text-stroke:1px rgba(255,255,255,.35);color:transparent}
+.light .outline{-webkit-text-stroke:1px rgba(0,0,0,.25)}
+.mono{font-weight:300;letter-spacing:.3em;text-transform:uppercase;font-size:11px}
+
+/* ───────────────────────── LAYOUT ───────────────────────── */
+.wrap{padding-inline:var(--gutter);max-width:1680px;margin-inline:auto}
+section{position:relative}
+.sec{padding-block:clamp(96px,14vw,200px)}
+.light{background:var(--paper);color:#0a0a0a}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,120px);align-items:start}
+@media(max-width:900px){.grid-2{grid-template-columns:1fr}}
+.rule{height:1px;background:rgba(255,255,255,.12)}
+.light .rule{background:rgba(0,0,0,.12)}
+
+/* ───────────────────────── CURSOR ───────────────────────── */
+.cursor{position:fixed;left:0;top:0;z-index:10000;pointer-events:none;mix-blend-mode:difference}
+.cursor-dot{position:absolute;width:8px;height:8px;border-radius:50%;background:#fff;transform:translate(-50%,-50%)}
+.cursor-ring{position:absolute;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.9);transform:translate(-50%,-50%) scale(1);transition:transform .35s var(--ease),opacity .3s,background .3s;display:grid;place-items:center}
+.cursor-ring span{font-size:9px;letter-spacing:.25em;font-weight:600;opacity:0;transition:opacity .2s;color:#000}
+.cursor.is-link .cursor-ring{transform:translate(-50%,-50%) scale(1.9);background:#fff}
+.cursor.is-link .cursor-dot{opacity:0}
+.cursor.is-drag .cursor-ring{transform:translate(-50%,-50%) scale(2.4);background:#fff}
+.cursor.is-drag .cursor-ring span,.cursor.is-view .cursor-ring span{opacity:1}
+.cursor.is-view .cursor-ring{transform:translate(-50%,-50%) scale(2.2);background:#fff}
+.cursor.is-drag .cursor-dot,.cursor.is-view .cursor-dot{opacity:0}
+@media (hover:none){.cursor{display:none}}
+
+/* ───────────────────────── LOADER ───────────────────────── */
+.loader{position:fixed;inset:0;z-index:9000;background:var(--black);display:grid;place-items:center;overflow:hidden}
+.loader-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:36px}
+.loader-mark{width:clamp(90px,12vw,160px);opacity:0;transform:scale(.7);filter:blur(14px)}
+.loader-word{width:clamp(240px,40vw,640px);opacity:0}
+.loader-word img{transform-origin:50% 50%;will-change:transform}
+.loader-word img{width:100%}
+.loader-line{position:relative;width:clamp(240px,40vw,640px);height:2px;margin-top:6px;background:rgba(255,255,255,.07);border-radius:2px}
+.loader-line i{position:absolute;left:0;top:0;height:100%;width:100%;border-radius:2px;background:linear-gradient(90deg,#EC4313,#FF6200 60%,#FFC79A);transform-origin:left;transform:scaleX(0);box-shadow:0 0 8px rgba(255,98,0,.7),0 0 22px rgba(255,98,0,.35),0 0 50px rgba(255,98,0,.18)}
+.loader-line .spark{position:absolute;top:50%;left:0;width:140px;height:140px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(255,224,204,.9) 0%,rgba(255,150,80,.5) 18%,rgba(255,98,0,.18) 40%,transparent 68%);filter:blur(8px);opacity:0;pointer-events:none}
+.loader-line .glow{position:absolute;left:50%;top:50%;width:140%;height:260px;transform:translate(-50%,-50%) scaleX(0);transform-origin:left center;left:0;background:radial-gradient(ellipse at center,rgba(255,98,0,.22) 0%,rgba(236,67,19,.1) 35%,transparent 70%);filter:blur(28px);opacity:0;pointer-events:none}
+.loader-tag{position:absolute;left:var(--gutter);bottom:var(--gutter);display:flex;flex-direction:column;gap:6px}
+.loader-tag span{display:block;overflow:hidden}
+.loader-tag b{display:block;font-weight:300;letter-spacing:.35em;font-size:11px;text-transform:uppercase;transform:translateY(110%)}
+.loader-curtain{position:absolute;inset:0;background:var(--orange);transform:translateY(101%)}
+
+/* ───────────────────────── TOP FADE (progressive blur) ───────────────────────── */
+.topfade{position:fixed;inset:0 0 auto 0;height:150px;z-index:890;pointer-events:none;
+  backdrop-filter:blur(16px) saturate(1.1);-webkit-backdrop-filter:blur(16px) saturate(1.1);
+  background:linear-gradient(180deg,rgba(5,5,5,.55) 0%,rgba(5,5,5,.18) 55%,rgba(5,5,5,0) 100%);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 28%,rgba(0,0,0,.55) 62%,transparent 100%);
+  mask-image:linear-gradient(180deg,#000 0%,#000 28%,rgba(0,0,0,.55) 62%,transparent 100%)}
+.topfade::after{content:"";position:absolute;inset:0;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  -webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 100%);mask-image:linear-gradient(180deg,#000 30%,transparent 100%)}
+body.on-light .topfade{background:linear-gradient(180deg,rgba(244,241,236,.9) 0%,rgba(244,241,236,.35) 55%,rgba(244,241,236,0) 100%)}
+.topfade{transition:background .5s}
+@media(max-width:900px){.topfade{height:120px}}
+
+/* ───────────────────────── NAV ───────────────────────── */
+.nav{position:fixed;inset:0 0 auto 0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:22px var(--gutter);color:#fff;transform:translateY(-120%);transition:padding .4s,color .4s}
+body.on-light:not(.menu-open) .nav{color:#0a0a0a}
+body.on-light:not(.menu-open) .nav .brand img.word{filter:brightness(0)}
+body.on-light:not(.menu-open) .nav li a::after{background:#000}
+body.on-light:not(.menu-open) .nav .btn-solid{background:#0a0a0a;color:#fff}
+body.on-light:not(.menu-open) .nav .burger{border-color:rgba(0,0,0,.4)}
+body.on-light:not(.menu-open) .nav .burger i{background:#000}
+.nav .brand img.word,.nav .burger,.nav .burger i{transition:filter .4s,border-color .4s,background .4s}
+.nav .brand{display:flex;align-items:center;gap:14px}
+.nav .brand img.mark{height:34px;width:auto;filter:brightness(0) invert(1)}
+.nav .brand img.word{height:16px;width:auto}
+.nav .brand img.mark{height:26px;width:auto}
+html[data-logo="compact"] .nav .brand img.word{height:15px}
+.c-only{display:none!important}
+html[data-logo="compact"] .c-only{display:block!important}
+.sb-deco{position:absolute;pointer-events:none;z-index:1;opacity:.07;width:min(70vw,900px);filter:brightness(0) invert(1);display:none}
+html[data-logo="compact"] .sb-deco{display:block}
+.sb-deco.hero-deco{right:-8vw;top:50%;transform:translateY(-55%);opacity:.09}
+.sb-deco.about-deco{right:-10vw;bottom:-8vw;width:min(60vw,760px);opacity:.05}
+.sb-deco.final-deco{left:50%;top:50%;transform:translate(-50%,-50%);width:min(90vw,1100px);opacity:.08;z-index:1}
+.nav ul{display:flex;gap:38px;list-style:none}
+.nav li a{font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;position:relative;padding:6px 0;overflow:hidden;display:block}
+.nav li a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:#fff;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.nav li a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav .burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);position:relative;margin-left:12px}
+.nav .burger i{position:absolute;left:50%;top:50%;width:18px;height:1.5px;background:#fff;transform:translate(-50%,-50%) translateY(-4px);transition:transform .5s var(--ease)}
+.nav .burger i+i{transform:translate(-50%,-50%) translateY(4px)}
+body.menu-open .nav .burger i{transform:translate(-50%,-50%) rotate(45deg)}
+body.menu-open .nav .burger i+i{transform:translate(-50%,-50%) rotate(-45deg)}
+.menu{position:fixed;inset:0;z-index:850;background:var(--black);display:flex;flex-direction:column;justify-content:flex-end;padding:120px var(--gutter) 48px;clip-path:inset(0 0 100% 0);pointer-events:none}
+.menu.on{pointer-events:auto}
+.menu a.big{display:block;font-weight:800;font-size:clamp(44px,13vw,96px);letter-spacing:-.04em;line-height:.95;overflow:hidden}
+.menu a.big span{display:block;transform:translateY(110%)}
+.menu .foot{margin-top:40px;display:flex;flex-direction:column;gap:14px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:300;color:rgba(255,255,255,.6)}
+.menu .x-deco{right:-30vw;top:-10vh;opacity:.12;width:120vw}
+@media(max-width:900px){.nav ul{display:none}.nav .burger{display:block}.nav .btn{display:none}}
+
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:18px 34px;border-radius:999px;font-weight:600;font-size:13px;letter-spacing:.2em;text-transform:uppercase;overflow:hidden;isolation:isolate;will-change:transform}
+.btn .lbl{position:relative;z-index:2;display:block;overflow:hidden}
+.btn .lbl span{display:block;transition:transform .6s var(--ease)}
+.btn .lbl span:last-child{position:absolute;top:0;left:0;transform:translateY(110%)}
+.btn:hover .lbl span:first-child{transform:translateY(-110%)}
+.btn:hover .lbl span:last-child{transform:translateY(0)}
+.btn-solid{background:#fff;color:#000}
+.btn-solid::before{content:"";position:absolute;inset:-2px;background:var(--grad);border-radius:inherit;transform:translateY(102%);transition:transform .6s var(--ease);z-index:1}
+.btn-solid:hover::before{transform:translateY(0)}
+.btn-solid:hover{color:#000}
+.btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff;backdrop-filter:blur(8px)}
+.btn-ghost::before{content:"";position:absolute;inset:0;background:#fff;border-radius:inherit;transform:translateY(102%);transition:transform .6s var(--ease);z-index:1}
+.btn-ghost:hover{color:#000;border-color:#fff}
+.btn-ghost:hover::before{transform:translateY(0)}
+.btn .arrow{position:relative;z-index:2;width:18px;height:18px;transition:transform .5s var(--ease)}
+.btn:hover .arrow{transform:translate(4px,-4px)}
+.nav .btn{padding:12px 22px;font-size:10px}
+
+/* ───────────────────────── HERO ───────────────────────── */
+.hero{min-height:100svh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:#0a0300}
+.hero-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-fallback{position:absolute;inset:0;background:url(assets/blur.jpg?v=1792676642) center/cover;display:none}
+.hero-shade{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(5,5,5,.55) 0%,rgba(5,5,5,0) 30%,rgba(5,5,5,0) 55%,rgba(5,5,5,.92) 100%),
+  radial-gradient(60% 50% at 50% 60%,rgba(0,0,0,0) 0%,rgba(5,5,5,.35) 100%);pointer-events:none}
+.hero-grain{position:absolute;inset:0;pointer-events:none;opacity:.14;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-inner{position:relative;z-index:2;padding:0 var(--gutter) clamp(36px,5vw,64px);width:100%;max-width:1680px;margin-inline:auto}
+.hero-top{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;justify-content:space-between;padding:calc(84px + 2vw) var(--gutter) 0;pointer-events:none}
+.hero-top .eyebrow{opacity:0;transform:translateY(12px)}
+.hero-word{width:min(62vw,900px,110svh);margin:0 0 clamp(28px,4vw,56px);position:relative}
+.hero-word .wm{width:100%;height:auto;overflow:visible}
+.hero-word #letters{clip-path:inset(0 100% 0 0)}
+.hero-word .slash{opacity:0;transform:translate(60px,-60px);transform-box:fill-box;transform-origin:center}
+.hero-word .x{position:absolute;right:0;top:0;height:100%;width:auto;opacity:0;transform:translate(30%,-20%) rotate(12deg)}
+.hero-sub{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+.hero-sub .oc{height:clamp(12px,1.2vw,18px);width:auto;opacity:0}
+.proof-line{display:inline-flex;align-items:center;gap:10px;margin-top:14px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:300;color:rgba(255,255,255,.75);opacity:0}
+.proof-line b{font-weight:700;font-size:13px;letter-spacing:0;color:var(--peach)}
+.hero-h{max-width:none;margin-top:16px;font-size:clamp(32px,4.6vw,70px)}
+.hero-h .line span{white-space:nowrap}
+.hero-h .line{display:block;overflow:hidden}
+.hero-h .line span{display:block;transform:translateY(110%)}
+.hero-h em{font-style:normal;color:var(--peach);white-space:nowrap}
+.hero-lead{margin-top:18px;font-size:clamp(14px,1.1vw,18px);color:rgba(255,255,255,.72);max-width:none;white-space:nowrap;opacity:0;transform:translateY(12px)}
+@media(max-width:700px){.hero-lead{white-space:normal}}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);gap:clamp(24px,5vw,80px);margin-top:clamp(28px,4vw,56px);padding-top:28px;border-top:1px solid rgba(255,255,255,.18)}
+.hero-stats div{opacity:0;transform:translateY(20px)}
+.hero-stats b{display:block;font-weight:700;font-size:clamp(24px,3vw,48px);letter-spacing:-.03em;line-height:1}
+.hero-stats b em{font-style:normal;color:var(--peach)}
+.hero-stats small{display:block;margin-top:10px;font-size:10px;letter-spacing:.32em;text-transform:uppercase;font-weight:300;color:rgba(255,255,255,.65)}
+.hero-cta{display:flex;align-items:center;gap:28px;flex-wrap:wrap;opacity:0;transform:translateY(20px)}
+.hero-cta .note{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:300;color:rgba(255,255,255,.7)}
+.scroll-cue{position:absolute;right:var(--gutter);bottom:clamp(36px,5vw,64px);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0}
+.scroll-cue i{width:1px;height:56px;background:rgba(255,255,255,.35);position:relative;overflow:hidden}
+.scroll-cue i::after{content:"";position:absolute;left:0;top:-100%;width:100%;height:100%;background:#fff;animation:cue 1.8s var(--ease-io) infinite}
+@keyframes cue{to{top:100%}}
+.scroll-cue span{font-size:9px;letter-spacing:.35em;text-transform:uppercase;writing-mode:vertical-rl;font-weight:300}
+@media(max-width:900px){
+  .hero{justify-content:flex-start}
+  .hero-top{position:static;padding:104px var(--gutter) 18px}
+  .hero-inner{padding-top:0}
+  .hero-h{font-size:clamp(28px,8vw,40px);max-width:none}
+  .hero-h .line span{white-space:normal}
+  .hero-sub{gap:22px}
+  .hero-stats{grid-template-columns:repeat(2,1fr);gap:14px 12px;margin-top:26px;padding-top:18px}
+  .hero-stats b{font-size:clamp(18px,5.4vw,26px)}
+  .hero-stats small{font-size:8px;letter-spacing:.22em;margin-top:6px}
+  .scroll-cue{display:none}
+}
+@media(max-width:480px){.hero-stats{grid-template-columns:1fr 1fr}}
+
+/* ───────────────────────── MARQUEE ───────────────────────── */
+.marquee{overflow:hidden;white-space:nowrap;padding:22px 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);background:var(--black)}
+.marquee .track{display:inline-flex;gap:0;will-change:transform}
+.marquee .item{display:inline-flex;align-items:center;gap:48px;padding-right:48px;font-weight:300;letter-spacing:.4em;text-transform:uppercase;font-size:clamp(11px,.9vw,13px);color:rgba(255,255,255,.8)}
+.marquee .item b{font-weight:600;letter-spacing:.42em;color:#fff}
+.marquee .item i{width:6px;height:6px;border-radius:50%;background:var(--orange);display:inline-block}
+.marquee.big{border:0;padding:0}
+.marquee.big .item{font-weight:800;font-size:clamp(90px,16vw,280px);letter-spacing:-.03em;text-transform:none;line-height:1;padding-right:.3em;gap:.3em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.3)}
+.marquee.big .item .fill{color:#fff;-webkit-text-stroke:0}
+
+/* ───────────────────────── INTRO ───────────────────────── */
+.intro{overflow:hidden}
+.intro .big-copy{font-size:clamp(28px,4.4vw,70px);font-weight:600;letter-spacing:-.03em;line-height:1.08;max-width:22ch}
+.big-copy .w{display:inline-block;opacity:.12;transition:opacity .05s linear}
+.big-copy .w.on{opacity:1}
+.big-copy .w.hi{color:var(--peach)}
+.intro-meta{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:clamp(40px,6vw,96px);align-items:end}
+.intro-meta p{max-width:52ch}
+.intro-meta .cta{display:flex;gap:18px;align-items:center;justify-content:flex-end}
+@media(max-width:900px){.intro-meta{grid-template-columns:1fr}.intro-meta .cta{justify-content:flex-start}}
+
+/* ───────────────────────── STATS ───────────────────────── */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}
+.stats div{padding:clamp(28px,3vw,48px) 20px clamp(28px,3vw,48px) clamp(20px,2vw,32px);border-right:1px solid rgba(255,255,255,.12)}
+.stats div:first-child{padding-left:0}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-weight:800;font-size:clamp(40px,5vw,88px);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.stats b sup{font-size:.4em;vertical-align:top;color:var(--orange);font-weight:600;margin-left:2px}
+.stats small{display:block;margin-top:12px;font-size:10px;letter-spacing:.32em;text-transform:uppercase;font-weight:300;color:rgba(255,255,255,.6)}
+@media(max-width:1100px){.stats{grid-template-columns:repeat(3,1fr)}.stats div:nth-child(3n){border-right:0}.stats div:nth-child(3n+1){padding-left:0}}
+@media(max-width:640px){.stats{grid-template-columns:1fr 1fr}.stats div{padding-left:16px}.stats div:nth-child(3n){border-right:1px solid rgba(255,255,255,.12)}.stats div:nth-child(2n){border-right:0}.stats div:nth-child(2n+1){padding-left:0}}
+
+/* ───────────────────────── EDGE (horizontal) ───────────────────────── */
+.edge{background:var(--paper);color:#0a0a0a;overflow:hidden}
+.edge-head{padding:clamp(80px,10vw,140px) var(--gutter) clamp(32px,4vw,56px);display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;max-width:1680px;margin-inline:auto}
+.edge-head h2{max-width:10ch}
+.edge-head .count{font-weight:200;font-size:clamp(60px,8vw,140px);letter-spacing:-.05em;line-height:.9;color:rgba(0,0,0,.18)}
+.edge-pin{height:100svh;display:flex;align-items:center;overflow:hidden}
+@media(min-height:700px){.edge-pin{height:86svh}}
+.edge-track{display:flex;gap:clamp(16px,2vw,28px);padding-inline:var(--gutter);will-change:transform}
+.card{flex:0 0 auto;width:clamp(240px,21vw,310px);aspect-ratio:3/4;border-radius:20px;background:#fff;padding:24px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.05),0 20px 50px -30px rgba(0,0,0,.25);transition:transform .6s var(--ease)}
+.card:hover{box-shadow:0 1px 0 rgba(0,0,0,.05),0 30px 60px -30px rgba(0,0,0,.35)}
+.card .n{font-weight:200;font-size:44px;letter-spacing:-.04em;line-height:1;color:rgba(0,0,0,.25)}
+.card p{font-weight:600;font-size:clamp(17px,1.2vw,21px);letter-spacing:-.02em;line-height:1.15}
+.card .x{position:absolute;right:-10px;bottom:-14px;width:120px;opacity:.06;filter:brightness(0)}
+.card.feature{background:#050505;color:#fff;width:clamp(280px,27vw,400px);background-image:url(assets/sunset.jpg?v=1792676642);background-size:cover;background-position:center}
+.card.feature::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.75))}
+.card.feature>*{position:relative}
+.card.feature .n{color:rgba(255,255,255,.6)}
+.card.feature .big{font-weight:800;font-size:clamp(52px,5vw,84px);letter-spacing:-.05em;line-height:.9}
+.card.feature p{font-weight:400;font-size:clamp(13px,.9vw,15px);color:rgba(255,255,255,.85);max-width:30ch}
+.card.feature .x{filter:none;opacity:.3;width:150px;right:-24px;top:-30px;bottom:auto}
+.card.accent{background:var(--grad);color:#000}
+.card.accent .n{color:rgba(0,0,0,.35)}
+.card.end{background:transparent;box-shadow:none;align-items:flex-start;justify-content:center;gap:24px}
+.card.end:hover{transform:none}
+.edge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-bottom:clamp(72px,9vw,130px)}
+.tile{background:#fff;border-radius:18px;padding:22px 22px 20px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.04);transition:box-shadow .5s,background .4s}
+.tile:hover{box-shadow:0 24px 50px -30px rgba(0,0,0,.35)}
+.tile .n{font-weight:200;font-size:34px;letter-spacing:-.04em;line-height:1;color:rgba(0,0,0,.28)}
+.tile p{font-weight:600;font-size:clamp(16px,1.1vw,19px);letter-spacing:-.02em;line-height:1.2;max-width:100%}
+.tile.feature{grid-column:span 2;grid-row:span 2;background:#050505 url(assets/tile-150k.jpg?v=1792676642) center/cover;color:#fff;padding:28px}
+.tile.feature::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.6))}
+.tile.feature>*{position:relative}
+.tile.feature .n{color:rgba(255,255,255,.6)}
+.tile.feature .big{font-weight:800;font-size:clamp(56px,6vw,104px);letter-spacing:-.05em;line-height:.9}
+.tile.feature p{font-weight:400;font-size:clamp(14px,1vw,16px);color:rgba(255,255,255,.85);max-width:34ch;margin-top:10px}
+.tile.feature .x{position:absolute;right:-24px;top:-30px;width:160px;opacity:.3}
+.tile.cta{background:var(--grad);color:#000;gap:16px;justify-content:center;align-items:flex-start}
+.tile.cta .eyebrow{color:rgba(0,0,0,.6)}.tile.cta .eyebrow::before{background:#000}
+.tile.cta p{font-size:clamp(18px,1.3vw,22px)}
+@media(max-width:1100px){.edge-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.edge-grid{grid-template-columns:1fr 1fr;gap:10px}.tile{min-height:160px;padding:18px}.tile.feature{grid-column:span 2;grid-row:span 1;min-height:260px}}
+@media(max-width:360px){.edge-grid{grid-template-columns:1fr}.tile.feature{grid-column:span 1}}
+.edge-foot{padding:0 var(--gutter) clamp(60px,8vw,120px);max-width:1680px;margin-inline:auto}
+.edge-foot p{max-width:70ch;font-size:clamp(16px,1.25vw,20px);color:rgba(0,0,0,.72)}
+.edge-foot p b{color:#000}
+.edge-foot q{font-style:italic;color:#000}
+
+/* ───────────────────────── FOUNDERS ───────────────────────── */
+.about{background:var(--black);border-bottom:1px solid rgba(255,255,255,.1)}
+.about-stat{margin-top:clamp(32px,4vw,56px);padding-top:24px;border-top:1px solid rgba(255,255,255,.14);width:fit-content;min-width:240px}
+.about-stat b{display:block;font-weight:800;font-size:clamp(44px,5vw,84px);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.about-stat b sup{font-size:.4em;vertical-align:top;color:var(--orange);font-weight:600;margin-left:2px}
+.about-stat small{display:block;margin-top:10px;font-size:10px;letter-spacing:.32em;text-transform:uppercase;font-weight:300;color:rgba(255,255,255,.6)}
+.about-copy{display:flex;flex-direction:column;gap:clamp(22px,2.4vw,34px);padding-top:clamp(0px,1vw,14px)}
+.about-quote{font-weight:600;font-size:clamp(22px,2.2vw,34px);letter-spacing:-.025em;line-height:1.2;color:#fff;max-width:24ch;position:relative;padding-left:22px;border-left:2px solid var(--orange)}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{padding:10px 16px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:400;color:rgba(255,255,255,.85);transition:border-color .3s,color .3s}
+.chips li:hover{border-color:var(--peach);color:#fff}
+.chips li.hot{background:var(--grad);border-color:transparent;color:#000;font-weight:700}
+.about-claim{font-weight:700;font-size:clamp(22px,2vw,30px);letter-spacing:-.025em;line-height:1.15;max-width:22ch}
+.about-claim em{font-style:normal;color:var(--peach)}
+
+/* ───────────────────────── STRUCTURE (timeline) ───────────────────────── */
+.structure{background:var(--black)}
+.structure .grid-2{grid-template-columns:5fr 7fr}
+.sticky{position:sticky;top:120px}
+.sticky p{margin-top:28px;max-width:44ch}
+.timeline{position:relative;padding-left:48px}
+.timeline::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(255,255,255,.12)}
+.timeline .prog{position:absolute;left:0;top:0;width:1px;height:100%;background:var(--grad);transform-origin:top;transform:scaleY(0)}
+.step{position:relative;padding:clamp(36px,4vw,64px) 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.step:last-child{border-bottom:0}
+.step::before{content:"";position:absolute;left:-54px;top:calc(clamp(36px,4vw,64px) + 10px);width:11px;height:11px;border-radius:50%;background:#1a1a1a;border:1px solid rgba(255,255,255,.3);transition:background .5s,box-shadow .5s,transform .5s var(--ease)}
+.step.on::before{background:var(--orange);border-color:var(--orange);box-shadow:0 0 0 8px rgba(255,98,0,.18),0 0 40px rgba(255,98,0,.6);transform:scale(1.2)}
+.step .k{display:flex;gap:18px;align-items:baseline;margin-bottom:14px}
+.step .k .i{font-weight:200;font-size:13px;letter-spacing:.3em;color:var(--peach)}
+.step .k .t{font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:300;color:rgba(255,255,255,.55)}
+.step h3{font-size:clamp(26px,2.6vw,42px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+.step h3 em{font-style:normal;color:var(--peach)}
+.step p{color:rgba(255,255,255,.72);max-width:52ch;font-size:clamp(15px,1.1vw,18px)}
+.step .tag{display:inline-block;margin-top:16px;padding:8px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;font-weight:400}
+.step .tag.hot{border-color:transparent;background:var(--grad);color:#000;font-weight:700}
+@media(max-width:900px){.structure .grid-2{grid-template-columns:1fr}.sticky{position:static}}
+
+/* ───────────────────────── INSIDE (photos) ───────────────────────── */
+.inside{background:var(--black)}
+.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(40px,5vw,72px)}
+.ph{position:relative;margin:0;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:var(--orange);isolation:isolate}
+.ph.wide{grid-column:span 2;aspect-ratio:auto}
+.ph.map{grid-column:span 2;aspect-ratio:auto}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.08);mix-blend-mode:multiply;transition:filter .8s var(--ease),transform 1.2s var(--ease);transform:scale(1.02)}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%);pointer-events:none}
+.ph:hover img{transform:scale(1.06)}
+.ph figcaption{position:absolute;left:18px;bottom:16px;z-index:2;font-size:10px;letter-spacing:.28em;text-transform:uppercase;font-weight:400;color:#fff}
+.ph.map{background:#e9e6e0}
+.ph.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05);transition:filter .6s}
+.ph.map:hover iframe{filter:none}
+.ph.map::after{display:none}
+.map-card{position:absolute;left:16px;bottom:16px;z-index:2;background:rgba(255,255,255,.96);color:#0a0a0a;padding:14px 16px;border-radius:12px;max-width:calc(100% - 32px)}
+.map-card b{display:block;font-weight:800;font-size:clamp(18px,1.5vw,24px);letter-spacing:-.03em;line-height:1;margin-top:8px}
+.map-card a{display:inline-block;margin-top:8px;font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;color:var(--orange-2)}
+.ph.tile-txt{background:var(--paper);color:#0a0a0a;display:grid;align-items:end;padding:24px}
+.ph.tile-txt::after{display:none}
+.ph.tile-txt b{display:block;font-weight:800;font-size:clamp(22px,2vw,32px);letter-spacing:-.03em;line-height:1;margin-top:14px}
+.ph.tile-txt small{display:block;margin-top:10px;font-size:13px;color:rgba(0,0,0,.6);max-width:26ch}
+@media(max-width:900px){.photo-grid{grid-template-columns:1fr 1fr}.ph.wide{grid-column:span 2;aspect-ratio:16/9}.ph.map{grid-column:span 2;aspect-ratio:16/9}}
+@media(max-width:520px){.photo-grid{grid-template-columns:1fr}.ph.wide,.ph.map{grid-column:span 1}}
+
+/* ───────────────────────── PILLARS ───────────────────────── */
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);margin-top:clamp(40px,5vw,72px)}
+.pillar{background:var(--black);padding:clamp(28px,3vw,44px);min-height:clamp(240px,24vw,340px);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;--mx:50%;--my:50%}
+.pillar::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx) var(--my),rgba(255,98,0,.28),transparent 60%);opacity:0;transition:opacity .5s}
+.pillar:hover::before{opacity:1}
+.pillar::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.pillar:hover::after{transform:scaleX(1)}
+.pillar .i{display:flex;align-items:center;color:rgba(255,255,255,.75)}
+.pillar .i svg{width:18px;height:18px;opacity:.85;transition:opacity .4s,transform .5s var(--ease)}
+.pillar:hover .i svg{opacity:1;transform:translateY(-2px);color:var(--peach)}
+.pillar h3{font-size:clamp(20px,1.7vw,28px);letter-spacing:-.02em;line-height:1.1;margin-top:40px;position:relative}
+.pillar p{margin-top:12px;color:rgba(255,255,255,.65);font-size:15px;position:relative;max-width:36ch}
+.pillar .more{margin-top:18px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;color:var(--peach);position:relative;opacity:0;transform:translateY(6px);transition:all .5s var(--ease)}
+.pillar:hover .more{opacity:1;transform:none}
+.pillar.wide{grid-column:span 1}
+@media(max-width:1000px){.pillars-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.pillars-grid{grid-template-columns:1fr}}
+
+/* ───────────────────────── TESTIMONIALS ───────────────────────── */
+.testi{overflow:hidden;padding-block:clamp(80px,10vw,160px)}
+.testi .row{display:flex;gap:20px;margin-top:20px;will-change:transform}
+.quote{flex:0 0 auto;width:clamp(320px,34vw,520px);padding:34px;border:1px solid rgba(255,255,255,.14);border-radius:20px;background:rgba(255,255,255,.025);transition:border-color .4s,background .4s}
+.quote:hover{border-color:rgba(255,98,0,.7);background:rgba(255,98,0,.06)}
+.quote .m{font-size:40px;line-height:.5;color:var(--orange);font-weight:800;margin-bottom:26px}
+.quote p{font-size:clamp(15px,1.15vw,18px);line-height:1.5;color:rgba(255,255,255,.88);font-weight:400}
+.quote footer{margin-top:24px;display:flex;align-items:center;gap:12px}
+.quote footer .av{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:0 0 40px;filter:grayscale(1) contrast(1.05);transition:filter .5s}
+.quote:hover footer .av{filter:none}
+.quote footer span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:300;color:rgba(255,255,255,.6)}
+.quote footer span b{display:block;font-weight:600;color:#fff;letter-spacing:.08em;text-transform:none;font-size:13px}
+
+/* ───────────────────────── TRACK RECORD ───────────────────────── */
+.record{background:var(--paper);color:#0a0a0a}
+.record .pull{font-size:clamp(30px,4.8vw,78px);font-weight:700;letter-spacing:-.035em;line-height:1.02;max-width:18ch}
+.record .pull .w{display:inline-block;transform:translateY(100%);opacity:0}
+.record .pull .q{color:var(--orange-2)}
+.record .side{display:flex;flex-direction:column;gap:22px;justify-content:flex-end;height:100%}
+.record .side p{color:rgba(0,0,0,.72);max-width:44ch;font-size:clamp(15px,1.15vw,18px)}
+.cohort-strip{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
+.cohort-strip span{padding:10px 16px;border:1px solid rgba(0,0,0,.15);border-radius:999px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;transition:all .4s}
+.cohort-strip span:hover{background:#000;color:#fff;border-color:#000}
+.startups-wall{margin-top:clamp(60px,8vw,120px)}
+.startup-rows{margin-top:28px;display:flex;flex-direction:column;gap:14px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.logo-row{overflow:hidden;white-space:nowrap}
+.logo-track{display:inline-flex;gap:14px;will-change:transform}
+.logo-track img{height:72px;width:200px;object-fit:contain;padding:18px 26px;background:#fff;border-radius:12px;filter:grayscale(1);opacity:.8;transition:filter .4s,opacity .4s;flex:0 0 auto}
+.logo-track img:hover{filter:none;opacity:1}
+@media(max-width:700px){.logo-track img{height:56px;width:150px;padding:12px 18px}}
+.team{margin-top:clamp(60px,8vw,120px)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.12);margin-top:36px}
+.member{background:var(--paper);padding:26px 24px 24px;display:flex;flex-direction:column;gap:22px;position:relative;overflow:hidden;transition:background .5s;min-height:0}
+.member:hover{background:#fff}
+.member .av{width:72px;height:72px;border-radius:50%;object-fit:cover;background:var(--grad);display:grid;place-items:center;font-weight:800;font-size:15px;color:#000;letter-spacing:-.02em;transition:transform .6s var(--ease);filter:grayscale(1);flex:0 0 auto}
+.member:hover .av{filter:none}
+.member:hover .av{transform:scale(1.06)}
+.member b{display:block;font-weight:700;font-size:clamp(16px,1.15vw,19px);letter-spacing:-.02em;line-height:1.15}
+.member span{display:block;margin-top:6px;font-size:9px;letter-spacing:.24em;text-transform:uppercase;font-weight:400;color:rgba(0,0,0,.55);min-height:2.6em}
+@media(max-width:1000px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ───────────────────────── PARTNERS ───────────────────────── */
+.partners .logos{display:grid;grid-template-columns:repeat(8,1fr);gap:1px;background:rgba(0,0,0,.1);border:1px solid rgba(0,0,0,.1);margin-top:clamp(40px,5vw,72px)}
+.partners .logos div{background:#fff;aspect-ratio:16/9;display:grid;place-items:center;padding:16%;transition:background .4s}
+.partners .logos img{width:100%;height:100%;object-fit:contain;filter:grayscale(1);opacity:.8;transition:opacity .4s,filter .4s}
+.partners .logos div:hover img{opacity:1;filter:none}
+@media(max-width:1100px){.partners .logos{grid-template-columns:repeat(5,1fr)}}
+@media(max-width:700px){.partners .logos{grid-template-columns:repeat(3,1fr)}}
+.press{background:var(--black);border-bottom:1px solid rgba(255,255,255,.1);padding-top:clamp(18px,2.5vw,40px)}
+.press-in{display:flex;align-items:center;gap:clamp(20px,3vw,48px);padding-block:30px 34px;flex-wrap:nowrap}
+.press-in .label{white-space:nowrap}
+.press-logos{display:flex;align-items:center;justify-content:space-between;gap:clamp(16px,2vw,40px);flex:1;min-width:0;flex-wrap:nowrap}
+.press-logos img{height:22px;width:auto;max-width:clamp(80px,9vw,150px);flex:0 1 auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.75;transition:opacity .3s}
+.press-logos img.box{filter:grayscale(1)}
+.press-logos img.inv{filter:invert(1) grayscale(1)}
+.press-logos img:hover{opacity:1}
+@media(max-width:900px){.press-in{flex-wrap:wrap}.press-logos{flex-wrap:wrap;justify-content:flex-start;gap:16px 24px}.press-logos img{height:16px;max-width:110px}}
+
+/* ───────────────────────── FAQ ───────────────────────── */
+.faq-list{margin-top:clamp(32px,4vw,56px);border-top:1px solid rgba(255,255,255,.12)}
+.faq{border-bottom:1px solid rgba(255,255,255,.12)}
+.faq button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:30px;padding:clamp(22px,2.4vw,34px) 0;text-align:left;font-weight:600;font-size:clamp(18px,1.7vw,28px);letter-spacing:-.02em;transition:color .3s}
+.faq button:hover{color:var(--peach)}
+.faq button .pl{position:relative;width:34px;height:34px;flex:0 0 34px;border:1px solid rgba(255,255,255,.3);border-radius:50%;transition:transform .6s var(--ease),background .4s,border-color .4s}
+.faq button .pl::before,.faq button .pl::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1px;background:#fff;transform:translate(-50%,-50%)}
+.faq button .pl::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .4s}
+.faq.open button .pl{transform:rotate(180deg);background:var(--orange);border-color:var(--orange)}
+.faq.open button .pl::after{transform:translate(-50%,-50%) rotate(0)}
+.faq .a{height:0;overflow:hidden}
+.faq .a p{padding:0 0 clamp(22px,2.4vw,34px);max-width:70ch;color:rgba(255,255,255,.72);font-size:clamp(15px,1.15vw,18px)}
+.faq-more{margin-top:28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+
+/* ───────────────────────── FINAL CTA ───────────────────────── */
+.final{min-height:100svh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:#0a0300}
+.final canvas{position:absolute;inset:0;width:100%;height:100%}
+.final .shade{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,rgba(0,0,0,.25),rgba(5,5,5,.85))}
+.final .in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:28px;padding:140px var(--gutter)}
+.final h2{font-size:clamp(48px,11vw,200px);line-height:.9;letter-spacing:-.045em}
+.final h2 .line{display:block;overflow:hidden}
+.final h2 .line span{display:block;transform:translateY(110%)}
+.final .mark{width:clamp(70px,8vw,120px);filter:brightness(0) invert(1);margin-bottom:10px;opacity:.38}
+html[data-logo="compact"] .final .mark{display:none}
+.final .note{font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:300;color:rgba(255,255,255,.75)}
+
+/* ───────────────────────── FOOTER ───────────────────────── */
+footer.site{background:var(--black);padding:clamp(60px,8vw,110px) var(--gutter) 40px;border-top:1px solid rgba(255,255,255,.1)}
+footer.site .top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1680px;margin-inline:auto}
+footer.site .foot-logos{display:flex;align-items:center;gap:22px;margin-bottom:22px}
+footer.site .oc{height:18px;width:auto}
+footer.site .foot-logos i{width:1px;height:36px;background:rgba(255,255,255,.2)}
+footer.site .diez{height:52px;width:auto;opacity:.95;filter:brightness(0) invert(1)}
+.social{display:flex;gap:10px;margin-top:18px}
+.social a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;color:#fff;transition:background .3s,border-color .3s,color .3s}
+.social a:hover{background:#fff;border-color:#fff;color:#000}
+.social svg{width:16px;height:16px;fill:currentColor}
+footer.site p{max-width:40ch;color:rgba(255,255,255,.6);font-size:14px}
+footer.site h4{font-size:10px;letter-spacing:.32em;text-transform:uppercase;font-weight:400;color:rgba(255,255,255,.5);margin-bottom:18px}
+footer.site ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+footer.site li a{font-size:14px;color:rgba(255,255,255,.85);position:relative}
+footer.site li a::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:1px;background:var(--orange);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+footer.site li a:hover::after{transform:scaleX(1);transform-origin:left}
+footer.site .newsletter{margin:clamp(50px,7vw,100px) auto 0;max-width:1680px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:end;padding-top:clamp(40px,5vw,64px);border-top:1px solid rgba(255,255,255,.1)}
+.nl-form{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+.nl-form input{height:58px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04);color:#fff;padding:0 24px;font:inherit;font-size:15px;outline:none;transition:border-color .3s,background .3s;min-width:0}
+.nl-form input::placeholder{color:rgba(255,255,255,.4)}
+.nl-form input:focus{border-color:var(--peach);background:rgba(255,255,255,.07)}
+.nl-form input:invalid:not(:placeholder-shown){border-color:rgba(255,98,0,.7)}
+.nl-form .nl-note{grid-column:1/-1;font-size:11px;color:rgba(255,255,255,.4);max-width:60ch}
+.nl-form.done input,.nl-form.done button{display:none}
+.nl-form.done .nl-note{font-size:15px;color:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(max-width:900px){footer.site .newsletter{grid-template-columns:1fr}}
+@media(max-width:520px){.nl-form{grid-template-columns:1fr}.nl-form .btn{justify-content:center}}
+footer.site .bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:10px;letter-spacing:.28em;text-transform:uppercase;font-weight:300;color:rgba(255,255,255,.45);max-width:1680px;margin-inline:auto}
+@media(max-width:900px){footer.site .top{grid-template-columns:1fr 1fr}}
+
+
+/* logo variant switch (review only) */
+.logo-switch{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:9500;display:flex;align-items:center;gap:4px;padding:4px;border-radius:999px;background:rgba(5,5,5,.8);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);font-size:9px;letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+.logo-switch span{padding:0 8px 0 10px;color:rgba(255,255,255,.5)}
+.logo-switch button{padding:8px 12px;border-radius:999px;color:rgba(255,255,255,.7);font:inherit;letter-spacing:inherit;text-transform:inherit;background:none;border:0;cursor:pointer}
+.logo-switch button.on{background:#fff;color:#000}
+
+/* capture mode (full-page screenshots): everything at rest, no fixed chrome */
+body.capture .loader,body.capture .logo-switch,body.capture .cursor,body.capture .scroll-cue{display:none!important}
+body.capture .nav{position:absolute;transform:none!important}
+body.capture .topfade{display:none}
+body.capture .rv,body.capture .hero-stats div,body.capture .hero-cta,body.capture .hero-lead,body.capture .hero-sub .oc,body.capture .proof-line,body.capture .record .pull .w{opacity:1!important;transform:none!important}
+body.capture .rv-l .line span,body.capture .hero-h .line span,body.capture .final h2 .line span{transform:none!important}
+body.capture .big-copy .w{opacity:1!important}
+body.capture .step::before{background:var(--orange);border-color:var(--orange)}
+body.capture #tlProg{transform:scaleY(1)!important}
+body.capture .hero{min-height:900px}
+body.capture .final{min-height:760px}
+body.capture .ph img{transform:none!important}
+/* reveal helpers */
+.rv{opacity:0;transform:translateY(36px)}
+.rv-l .line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.rv-l .line span{display:block;transform:translateY(110%)}
+.x-deco{position:absolute;pointer-events:none;opacity:.08;width:clamp(200px,30vw,520px)}
+.x-deco.r{right:-6vw;top:10%}
+@media (prefers-reduced-motion:reduce){
+  .rv,.hero-stats div,.hero-cta,.hero-top .eyebrow{opacity:1!important;transform:none!important}
+  .rv-l .line span,.hero-h .line span,.final h2 .line span{transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"><div class="cursor-dot"></div><div class="cursor-ring"><span>DRAG</span></div></div>
+
+<!-- LOADER -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-word"><img src="assets/wordmark.svg?v=1792676642" alt=""></div>
+    <div class="loader-line"><div class="glow"></div><i id="ldBar"></i><b class="spark"></b></div>
+  </div>
+  <div class="loader-tag">
+    <span><b>Oraseya Capital</b></span>
+    <span><b>Dubai · Cohort 2026</b></span>
+  </div>
+  <div class="loader-curtain" id="ldCurtain"></div>
+</div>
+
+<!-- TOP FADE -->
+<div class="topfade" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="brand" href="#top" data-cursor="link">
+    <img class="mark c-only" src="assets/sb-mark.svg?v=1792676642" alt="">
+    <img class="word" src="assets/wordmark.svg?v=1792676642" alt="SANDBOX">
+  </a>
+  <ul>
+    <li><a href="#top" data-cursor="link">Home</a></li>
+    <li><a href="#program" data-cursor="link">Program</a></li>
+    <li><a href="#startups" data-cursor="link">Startups</a></li>
+    <li><a href="#faqs" data-cursor="link">FAQs</a></li>
+    <li><a href="#contact" data-cursor="link">Contact</a></li>
+  </ul>
+  <a class="btn btn-solid magnet" href="#apply" data-cursor="link"><span class="lbl"><span>Apply now</span><span>Apply now</span></span></a>
+  <button class="burger" id="burger" aria-label="Menu"><i></i><i></i></button>
+</nav>
+<div class="menu" id="menu">
+  <img class="x-deco" src="assets/x.svg?v=1792676642" alt="">
+  <a class="big" href="#top"><span>Home</span></a>
+  <a class="big" href="#program"><span>Program</span></a>
+  <a class="big" href="#startups"><span>Startups</span></a>
+  <a class="big" href="#faqs"><span>FAQs</span></a>
+  <a class="big" href="#apply"><span class="grad-text">Apply now</span></a>
+  <div class="foot"><span>programs@oraseyacapital.com</span><span>Dubai · Applications close end of November</span></div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+  <div class="hero-fallback" id="heroFallback"></div>
+  <div class="hero-shade"></div>
+  <div class="hero-grain"></div>
+  <img class="sb-deco hero-deco" src="assets/sb-mark.svg?v=1792676642" alt="">
+
+
+  <div class="hero-inner">
+    <div class="hero-sub">
+      <div>
+        <img class="oc" src="assets/oraseya.svg?v=1792676642" alt="Oraseya Capital">
+        <h1 class="hero-h">
+          <span class="line"><span>Dubai’s only <em>VC-backed</em></span></span>
+          <span class="line"><span>startup investment</span></span>
+          <span class="line"><span>program.</span></span>
+        </h1>
+        <p class="hero-lead">The landmark startup investment program from Oraseya Capital.</p>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-solid magnet" href="#apply" data-cursor="link"><span class="lbl"><span>Apply now</span><span>Apply now</span></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <span class="note">Applications close end of November</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div><b><em>$</em>150,000</b><small>Investment from Oraseya Capital</small></div>
+      <div><b>5 <em>epic</em> months</b><small>Of hard work</small></div>
+      <div><b>Q3 2026</b><small>Program commences</small></div>
+      <div><b><em>#</em>1 investor</b><small>Most active in the UAE · MAGNiTT 2024 &amp; 2025</small></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><i></i></div>
+</header>
+
+<!-- TICKER -->
+<div class="marquee" aria-hidden="true">
+  <div class="track" data-speed="0.6">
+    <div class="item"><b>SANDBOX</b><i></i>By Oraseya Capital<i></i>Dubai, UAE<i></i>$150,000 investment<i></i>Pre-Seed to Seed<i></i>Backed by the UAE’s #1 most active investor<i></i></div>
+    <div class="item"><b>SANDBOX</b><i></i>By Oraseya Capital<i></i>Dubai, UAE<i></i>$150,000 investment<i></i>Pre-Seed to Seed<i></i>Backed by the UAE’s #1 most active investor<i></i></div>
+    <div class="item"><b>SANDBOX</b><i></i>By Oraseya Capital<i></i>Dubai, UAE<i></i>$150,000 investment<i></i>Pre-Seed to Seed<i></i>Backed by the UAE’s #1 most active investor<i></i></div>
+    <div class="item"><b>SANDBOX</b><i></i>By Oraseya Capital<i></i>Dubai, UAE<i></i>$150,000 investment<i></i>Pre-Seed to Seed<i></i>Backed by the UAE’s #1 most active investor<i></i></div>
+  </div>
+</div>
+
+
+<!-- PRESS -->
+<section class="press">
+  <div class="wrap press-in">
+    <span class="label">As featured by</span>
+    <div class="press-logos"><img src="assets/press/press01.png?v=1792676642" alt="" loading="lazy"><img class="box" src="assets/press/press02.png?v=1792676642" alt="" loading="lazy"><img class="box" src="assets/press/press03.png?v=1792676642" alt="" loading="lazy"><img src="assets/press/press04.png?v=1792676642" alt="" loading="lazy"><img src="assets/press/press05.png?v=1792676642" alt="" loading="lazy"><img src="assets/press/press06.png?v=1792676642" alt="" loading="lazy"><img class="inv" src="assets/press/press07.png?v=1792676642" alt="" loading="lazy"><img src="assets/press/press08.png?v=1792676642" alt="" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro sec" id="program">
+  <div class="wrap">
+    <span class="eyebrow rv">This is the program</span>
+    <p class="big-copy" data-words style="margin-top:32px">SANDBOX is the landmark startup investment program from Oraseya Capital, designed for ambitious <em class="hi" style="font-style:normal">pre-Seed to Seed stage</em> technology entrepreneurs. If you’re looking to take your startup to the next level, read on…</p>
+    <div class="intro-meta">
+      <div><p class="lead rv">SANDBOX lays emphasis on exposure, investor-readiness, and growth. Spanning 5 intense months, founders can expect unparalleled access to VCs, guidance from seasoned entrepreneurs, and hundreds of hours of hands-on support from some of the region’s best mentors.</p>
+      <p class="rv" style="margin-top:22px;font-size:13px;letter-spacing:.08em;color:rgba(255,255,255,.55);max-width:52ch">Oraseya Capital, the venture capital fund of DIEZ, was recognised by MAGNiTT as the UAE’s most active investor in 2024 and 2025, and named Venture Capital Firm of the Year by Entrepreneur Middle East.</p></div>
+      <div class="cta rv">
+        <a class="btn btn-ghost magnet" href="#structure" data-cursor="link"><span class="lbl"><span>How it works</span><span>How it works</span></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="wrap" style="padding-bottom:clamp(96px,14vw,200px)">
+  <div class="stats">
+    <div class="rv"><b><span data-count="7500">0</span><sup>+</sup></b><small>Applications to date</small></div>
+    <div class="rv"><b><span data-count="100">0</span><sup>+</sup></b><small>Startups enrolled</small></div>
+    <div class="rv"><b><span data-count="8">0</span></b><small>Cohorts since 2022</small></div>
+    <div class="rv"><b>$<span data-count="1">0</span>m<sup>+</sup></b><small>In-kind partner credits</small></div>
+    <div class="rv"><b><span data-count="9">0</span></b><small>Pillars of the program</small></div>
+  </div>
+</section>
+
+<!-- WINNING EDGE — horizontal -->
+<section class="edge light" id="edge">
+  <div class="edge-head">
+    <div>
+      <span class="eyebrow rv">Outdo competition</span>
+      <h2 class="h-lg rv-l" style="margin-top:24px"><span class="line"><span>Gain a</span></span><span class="line"><span>winning edge.</span></span></h2>
+      <p class="rv" style="margin-top:18px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;color:rgba(0,0,0,.5)">12 reasons to apply</p>
+    </div>
+  </div>
+  <div class="edge-grid wrap">
+    <article class="tile feature"><div class="n">01</div><div><div class="big">$150K</div><p>investment from Oraseya Capital via SAFE Note Agreement ($110,000 cash + $40,000 program fee)</p></div></article>
+    <article class="tile"><div class="n">02</div><p>Tens of hours of workshops covering 9 pillars</p></article>
+    <article class="tile"><div class="n">03</div><p>1:1 mentoring with expert practitioners</p></article>
+    <article class="tile"><div class="n">04</div><p>Coworking space for you and your team</p></article>
+    <article class="tile"><div class="n">05</div><p>$1m+ of in-kind credits from our partners</p></article>
+    <article class="tile"><div class="n">06</div><p>Financial diagnostics to best position you for funding</p></article>
+    <article class="tile"><div class="n">07</div><p>Tailored legal diagnostics and support</p></article>
+    <article class="tile"><div class="n">08</div><p>A like-minded community of highly ambitious founders and guests</p></article>
+    <article class="tile"><div class="n">09</div><p>Regular pitch deck reviews and workshops</p></article>
+    <article class="tile"><div class="n">10</div><p>Opportunity to avail business license, if required</p></article>
+    <article class="tile"><div class="n">11</div><p>Exposure to VCs and Angels across MENA</p></article>
+    <article class="tile"><div class="n">12</div><p>Local exposure at startup events</p></article>
+    <article class="tile cta"><span class="eyebrow">Limited places</span><p>Applications close end of November.</p><a class="btn btn-solid magnet" style="background:#000;color:#fff" href="#apply" data-cursor="link"><span class="lbl"><span>Apply now</span><span>Apply now</span></span></a></article>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section class="about sec" id="founders" style="overflow:hidden">
+  <img class="sb-deco about-deco" src="assets/sb-mark.svg?v=1792676642" alt="">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:start">
+      <div>
+        <span class="eyebrow rv">Founder centricity</span>
+        <h2 class="h-lg rv-l" style="margin-top:24px"><span class="line"><span>SANDBOX is</span></span><span class="line"><span>about you:</span></span><span class="line"><span class="grad-text">our founders.</span></span></h2>
+        <div class="about-stat rv"><b><span data-count="7500">0</span><sup>+</sup></b><small>Applications to date</small></div>
+      </div>
+      <div class="about-copy">
+        <p class="about-quote rv">“Fast become one of the most sought-after startup programs in the region.”</p>
+        <p class="lead rv">Everything is designed to help you scale and ultimately raise funds. The program is structured around 9 pillars to cover all bases:</p>
+        <ul class="chips rv">
+          <li>Product Development</li><li>Investor Relations</li><li>Traction</li><li>Scaling</li><li>Financial Diagnostics</li><li>Legal Support</li><li>Commercial Viability</li><li>Growth Marketing</li><li>and uniquely, Wellness</li>
+        </ul>
+        <p class="about-claim rv">We’re the first startup program in the region to lay emphasis on <em>wellbeing and performance.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section class="structure sec" id="structure">
+  <div class="wrap grid-2">
+    <div>
+      <div class="sticky">
+        <span class="eyebrow rv">What differentiates SANDBOX?</span>
+        <h2 class="h-lg rv-l" style="margin-top:24px"><span class="line"><span>A startup</span></span><span class="line"><span>program like</span></span><span class="line"><span class="grad-text">no other.</span></span></h2>
+        <p class="lead rv">Throughout SANDBOX, founders can expect a flexible curriculum of content and a series of sprints focusing on growth and fundraising. The program sees founders develop a habit of feedback and accountability; rewarding those that make significant progress. SANDBOX is uniquely structured into 2 phases.</p>
+      </div>
+    </div>
+    <div class="timeline" id="timeline">
+      <i class="prog" id="tlProg"></i>
+      <div class="step"><div class="k"><span class="i">01</span><span class="t">Application process</span></div><h3>Three stages. <em>One shot.</em></h3><p>3-stage application process including submitting an application form, presenting on a screening call, then pitching to the SANDBOX Selection Committee.</p><span class="tag">Form → Screening call → Selection Committee</span></div>
+      <div class="step"><div class="k"><span class="i">02</span><span class="t">Phase 1 — 2 months</span></div><h3>“Diagnostics”</h3><p>Deep-dive 2-months focusing on diagnostics, product-market-fit, and positioning.</p><span class="tag">Diagnostics · PMF · Positioning</span></div>
+      <div class="step"><div class="k"><span class="i">03</span><span class="t">Internal pitch</span></div><h3>Pitch. <em>Get funded.</em></h3><p>All startups pitch to the SANDBOX Investment Committee. Those shortlisted are invited to Phase 2 and receive an investment of $150,000 from Oraseya Capital via SAFE Note Agreement ($110,000 cash + $40,000 program fee).</p><span class="tag hot">$150,000 SAFE</span></div>
+      <div class="step"><div class="k"><span class="i">04</span><span class="t">Phase 2 — 3 months</span></div><h3>“Sprints”</h3><p>Intensive 3-months focusing on investor-readiness, commercialisation, and growth.</p><span class="tag">Investor-readiness · Commercialisation · Growth</span></div>
+      <div class="step"><div class="k"><span class="i">05</span><span class="t">Finale</span></div><h3>SANDBOX <em>Demo Day</em></h3><p>At the end of Phase 2, the program wraps up with the SANDBOX Demo Day whereby founders pitch to investors from around the region and around the world.</p><span class="tag">Regional + international investors</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIDE -->
+<section class="inside sec" id="inside">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:end">
+      <div>
+        <span class="eyebrow rv">Inside the program</span>
+        <h2 class="h-lg rv-l" style="margin-top:24px"><span class="line"><span>Five months.</span></span><span class="line"><span>In the room.</span></span></h2>
+      </div>
+      <p class="lead rv">Sessions, pitch days, 1:1s and Demo Day at Oraseya Capital in Dubai Silicon Oasis. This is where the work happens.</p>
+    </div>
+    <div class="photo-grid">
+      <figure class="ph wide rv"><img src="assets/program/p-team.jpg?v=1792676642" alt="" loading="lazy"><figcaption>Founders with the Oraseya Capital team</figcaption></figure>
+      <figure class="ph rv"><img src="assets/program/p-audience.jpg?v=1792676642" alt="" loading="lazy" style="object-position:center 30%"><figcaption>Workshop session</figcaption></figure>
+      <figure class="ph rv"><img src="assets/program/p-talk.jpg?v=1792676642" alt="" loading="lazy" style="object-position:40% center"><figcaption>Expert session</figcaption></figure>
+      <figure class="ph rv"><img src="assets/program/p-session.jpg?v=1792676642" alt="" loading="lazy" style="object-position:center top"><figcaption>Investor-readiness sprint</figcaption></figure>
+      <figure class="ph rv"><img src="assets/program/p-network.jpg?v=1792676642" alt="" loading="lazy" style="object-position:85% center"><figcaption>Cohort networking</figcaption></figure>
+      <figure class="ph map rv">
+        <iframe src="https://www.google.com/maps?q=Oraseya+Capital,+Dubai+Silicon+Oasis,+Dubai&z=14&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map: Dubai Silicon Oasis" allowfullscreen></iframe>
+        <div class="map-card"><span class="eyebrow" style="color:rgba(0,0,0,.6)">Where</span><b>Dubai Silicon Oasis</b><a href="https://www.google.com/maps/search/?api=1&query=Oraseya+Capital+Dubai+Silicon+Oasis" target="_blank" rel="noopener" data-cursor="link">Open in Google Maps ↗</a></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- BIG MARQUEE -->
+<div class="marquee big" aria-hidden="true">
+  <div class="track" data-speed="1.2">
+    <div class="item">Product<span>Traction</span>Scaling<span>Financials</span>Wellness+<span>Legal</span>Commercial<span>Investors</span>Growth</div>
+    <div class="item">Product<span>Traction</span>Scaling<span>Financials</span>Wellness+<span>Legal</span>Commercial<span>Investors</span>Growth</div>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section class="pillars sec" id="pillars">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:end">
+      <div>
+        <span class="eyebrow rv">Program structure</span>
+        <h2 class="h-lg rv-l" style="margin-top:24px"><span class="line"><span>Nine pillars.</span></span><span class="line"><span>All bases.</span></span></h2>
+      </div>
+      <p class="lead rv">SANDBOX is uniquely structured around 9 pillars, to accelerate your learning.</p>
+    </div>
+    <div class="pillars-grid">
+      <article class="pillar rv"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="M12 12 20 7.5M12 12v9M12 12 4 7.5"/></svg></div><div><h3>Product Development</h3><p>Building a product is one thing, building a scalable product is another.</p><div class="more">Read more →</div></div></article>
+      <article class="pillar rv"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 9 11l4 4 8-8"/><path d="M15 7h6v6"/></svg></div><div><h3>Traction</h3><p>From optimising sales funnel conversion to enhancing web traffic, hit the ground running.</p><div class="more">Read more →</div></div></article>
+      <article class="pillar rv"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V14M10 20V9M16 20V4"/><path d="M20 20H2"/></svg></div><div><h3>Scaling</h3><p>Grow your client base from 10-to-100-to-1000+, whilst becoming “investor ready”.</p><div class="more">Read more →</div></div></article>
+      <article class="pillar rv"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></div><div><h3>Financial Diagnostics</h3><p>Deep dive diagnostics to help you best prepare for your funding rounds.</p><div class="more">Read more →</div></div></article>
+      <article class="pillar rv"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10Z"/><path d="M12 8v6M9 11h6"/></svg></div><div><h3>Wellness+</h3><p>Being a founder is incredibly stressful. SANDBOX prioritizes the mental health of you and your team.</p><div class="more">Read more →</div></div></article>
+      <article class="pillar rv"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4 7h16"/><path d="M7 7 4 14h6L7 7ZM17 7l-3 7h6l-3-7Z"/></svg></div><div><h3>Legal Support</h3><p>$3000 worth of legal support, plus 1:1s and workshops from startup lawyers.</p><div class="more">Read more →</div></div></article>
+      <article class="pillar rv"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div><div><h3>Commercial Viability</h3><p>Strategy and planning are one thing, but execution is another.</p><div class="more">Read more →</div></div></article>
+      <article class="pillar rv"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16v10H4z"/><path d="M9 10V6h6v4"/><path d="M4 14h16"/></svg></div><div><h3>Investor Relations</h3><p>From pitch reviews to datarooms, work with professional investors.</p><div class="more">Read more →</div></div></article>
+      <article class="pillar rv"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l7 4V6l-7 4H4Z"/><path d="M17 9a4 4 0 0 1 0 6M19.5 7a7 7 0 0 1 0 10"/></svg></div><div><h3>Growth Marketing</h3><p>From SEO and SEM to referral programs and guerilla marketing.</p><div class="more">Read more →</div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testimonials">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:30px">
+    <div><span class="eyebrow rv">Testimonials</span><h2 class="h-md rv-l" style="margin-top:20px"><span class="line"><span>Founders on SANDBOX.</span></span></h2></div>
+    <span class="mono rv" style="color:rgba(255,255,255,.5)">Hover to pause</span>
+  </div>
+  <div class="row" data-dir="1" id="rowA"></div>
+  <div class="row" data-dir="-1" id="rowB"></div>
+</section>
+
+<!-- TRACK RECORD + TEAM -->
+<section class="record sec light" id="startups">
+  <div class="wrap">
+    <div class="grid-2">
+      <div>
+        <span class="eyebrow rv">The startups currently enrolled in SANDBOX</span>
+        <p class="pull" data-pull style="margin-top:28px">Since its inception in 2022, SANDBOX has <span class="q">“fast become one of the most sought-after startup programs in the region.”</span></p>
+      </div>
+      <div class="side">
+        <p class="rv">Having received 7,500+ applications and enrolling 100+ startups across 8 cohorts. The secret is simple: <b>founder centricity.</b></p>
+        <p class="rv">The SANDBOX Alumni are constantly growing. Joining the Alumni means you have access to funding, exposure to investors, introductions to world-class mentors, and much more.</p>
+        <div class="cohort-strip rv"><span>Cohort 1</span><span>Cohort 2</span><span>Cohort 3</span><span>Cohort 4</span><span>Cohort 5</span><span>Cohort 6</span><span>Cohort 7</span><span>Cohort 8</span><span style="background:var(--orange);border-color:var(--orange);color:#000">Cohort 9 — 2026</span></div>
+      </div>
+    </div>
+
+    <div class="startups-wall">
+      <div class="grid-2" style="align-items:end">
+        <h3 class="h-sm rv-l"><span class="line"><span>The startups currently enrolled in SANDBOX.</span></span></h3>
+        <p class="note rv" style="margin:0;color:rgba(0,0,0,.55)">Alumni and current cohort, as listed on sandboxaccelerator.com.</p>
+      </div>
+      <div class="startup-rows rv"><div class="logo-row" data-dir="1" data-speed="0.45"><div class="logo-track"><img src="assets/startups/s01.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s02.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s03.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s04.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s05.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s06.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s07.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s08.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s09.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s10.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s11.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s01.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s02.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s03.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s04.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s05.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s06.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s07.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s08.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s09.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s10.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s11.png?v=1792676642" alt="" loading="lazy"></div></div><div class="logo-row" data-dir="-1" data-speed="0.38"><div class="logo-track"><img src="assets/startups/s12.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s13.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s14.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s15.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s16.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s17.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s18.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s19.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s20.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s21.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s12.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s13.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s14.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s15.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s16.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s17.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s18.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s19.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s20.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s21.png?v=1792676642" alt="" loading="lazy"></div></div><div class="logo-row" data-dir="1" data-speed="0.5"><div class="logo-track"><img src="assets/startups/s22.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s23.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s24.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s25.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s26.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s27.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s28.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s29.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s30.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s31.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s22.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s23.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s24.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s25.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s26.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s27.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s28.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s29.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s30.png?v=1792676642" alt="" loading="lazy"><img src="assets/startups/s31.png?v=1792676642" alt="" loading="lazy"></div></div></div>
+        </div>
+
+    <div class="team">
+      <div class="grid-2" style="align-items:end">
+        <h2 class="h-md rv-l"><span class="line"><span>The team</span></span><span class="line"><span>behind SANDBOX.</span></span></h2>
+        <p class="lead rv">Operators, investors and program staff who have run eight cohorts and sat across the table from more than 7,500 founders.</p>
+      </div>
+      <div class="team-grid">
+        <div class="member rv"><img class="av" src="assets/team/elliott-denham.png?v=1792676642" alt=""><div><b>Elliott Denham</b><span>Head of Programs</span></div></div>
+        <div class="member rv"><img class="av" src="assets/team/julien-plouzeau.png?v=1792676642" alt=""><div><b>Julien Plouzeau</b><span>Senior Partner</span></div></div>
+        <div class="member rv"><img class="av" src="assets/team/hassan-abdulkarim.png?v=1792676642" alt=""><div><b>Hassan Abdulkarim</b><span>Board Director</span></div></div>
+        <div class="member rv"><img class="av" src="assets/team/paul-keely.jpg?v=1792676642" alt=""><div><b>Paul Keely</b><span>Board Director</span></div></div>
+        <div class="member rv"><img class="av" src="assets/team/asad-sheikh.png?v=1792676642" alt=""><div><b>Asad Sheikh</b><span>Startup Programs Assistant Manager</span></div></div>
+        <div class="member rv"><img class="av" src="assets/team/karen-marcos.png?v=1792676642" alt=""><div><b>Karen Marcos</b><span>Portfolio &amp; Investment Associate</span></div></div>
+        <div class="member rv"><img class="av" src="assets/team/corazon-paredes.png?v=1792676642" alt=""><div><b>Corazon Paredes</b><span>Office Administrator</span></div></div>
+        <div class="member rv" style="background:var(--grad)"><div class="av" style="background:#000;color:#fff">+</div><div><b>Join the cohort</b><span style="color:rgba(0,0,0,.7)">Applications close end of Nov</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners sec light">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:end">
+      <div><span class="eyebrow rv">Partners</span><h2 class="h-lg rv-l" style="margin-top:24px"><span class="line"><span>Partners that</span></span><span class="line"><span>cover all</span></span><span class="line"><span>your bases.</span></span></h2></div>
+      <p class="lead rv">It’s no secret that founders need help. From software credits to bespoke advice, we’ve partnered with some of the best-in-class so that you can hit the ground running, fast.</p>
+    </div>
+    <div class="logos rv"><div><img src="assets/partners/p01.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p02.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p03.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p04.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p05.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p06.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p07.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p08.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p09.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p10.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p11.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p12.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p13.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p14.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p15.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p16.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p17.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p18.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p19.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p20.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p21.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p22.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p23.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p24.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p25.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p26.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p27.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p28.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p29.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p30.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p31.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p32.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p33.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p34.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p35.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p36.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p37.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p38.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p39.png?v=1792676642" alt="" loading="lazy"></div><div><img src="assets/partners/p40.png?v=1792676642" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faqs">
+  <div class="wrap grid-2">
+    <div>
+      <div class="sticky">
+        <span class="eyebrow rv">FAQs</span>
+        <h2 class="h-lg rv-l" style="margin-top:24px"><span class="line"><span>No stone</span></span><span class="line"><span>unturned.</span></span></h2>
+        <p class="lead rv">We're not only one of the most founder-centric programs, we’re also the most transparent. With 40+ FAQs, we’ve left no stone unturned. Of course, if there’s anything else you’d like to know, get in touch with us.</p>
+      </div>
+    </div>
+    <div>
+      <span class="mono rv" style="color:rgba(255,255,255,.5)">Our 5 most common FAQs</span>
+      <div class="faq-list">
+        <div class="faq rv"><button><span>When is the next cohort?</span><i class="pl"></i></button><div class="a"><p>The next SANDBOX cohort commences in Q3 2026. Applications close end of November, and are reviewed on a rolling basis, so apply early.</p></div></div>
+        <div class="faq rv"><button><span>Will SANDBOX invest in my startup?</span><i class="pl"></i></button><div class="a"><p>Startups shortlisted after the Phase 1 internal pitch receive an investment of $150,000 from Oraseya Capital via SAFE Note Agreement ($110,000 cash + $40,000 program fee).</p></div></div>
+        <div class="faq rv"><button><span>What is the selection process?</span><i class="pl"></i></button><div class="a"><p>A 3-stage application process: submit an application form, present on a screening call, then pitch to the SANDBOX Selection Committee.</p></div></div>
+        <div class="faq rv"><button><span>How is the SANDBOX program structured?</span><i class="pl"></i></button><div class="a"><p>Two phases across 5 months. Phase 1 “Diagnostics” (2 months) focuses on diagnostics, product-market-fit and positioning. Phase 2 “Sprints” (3 months) focuses on investor-readiness, commercialisation and growth, wrapping up with the SANDBOX Demo Day.</p></div></div>
+        <div class="faq rv"><button><span>Does SANDBOX only accept tech companies?</span><i class="pl"></i></button><div class="a"><p>SANDBOX is designed for ambitious pre-Seed to Seed stage technology entrepreneurs. Full details are covered in our 40+ FAQs.</p></div></div>
+      </div>
+      <div class="faq-more rv">
+        <a class="btn btn-ghost magnet" href="https://www.sandboxaccelerator.com/faqs" data-cursor="link"><span class="lbl"><span>All 40+ FAQs</span><span>All 40+ FAQs</span></span></a>
+        <span class="mono" style="color:rgba(255,255,255,.5)">or email programs@oraseyacapital.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="apply">
+  <canvas id="finalCanvas"></canvas>
+  <div class="shade"></div>
+  <img class="sb-deco final-deco" src="assets/sb-mark.svg?v=1792676642" alt="">
+  <div class="in">
+    <img class="mark" src="assets/sb-mark-white.svg?v=1792676642" alt="">
+    <h2><span class="line"><span>Limited places,</span></span><span class="line"><span>apply now.</span></span></h2>
+    <span class="note rv">Applications close end of November · Program commences Q3 2026</span>
+    <a class="btn btn-solid magnet rv" href="https://www.sandboxaccelerator.com/" data-cursor="link" style="padding:24px 44px;font-size:14px"><span class="lbl"><span>Start your application</span><span>Start your application</span></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  </div>
+</section>
+
+<div class="logo-switch" id="logoSwitch" aria-label="Logo variant"><span>Logo</span><button data-v="bold">A Bold</button><button data-v="thin">B Thin</button><button data-v="compact">C Compact</button></div>
+
+<!-- FOOTER -->
+<footer class="site" id="contact">
+  <div class="top">
+    <div>
+      <div class="foot-logos">
+        <img class="diez" src="assets/diez.png?v=1792676642" alt="DIEZ · Dubai Integrated Economic Zones Authority">
+        <i></i>
+        <img class="oc" src="assets/oraseya.svg?v=1792676642" alt="Oraseya Capital">
+      </div>
+      <p>SANDBOX is the landmark startup investment program from Oraseya Capital, the venture capital fund of the Dubai Integrated Economic Zones Authority (DIEZ) and the UAE’s #1 most active investor (MAGNiTT, 2024 &amp; 2025).</p>
+    </div>
+    <div><h4>Program</h4><ul><li><a href="#program" data-cursor="link">About</a></li><li><a href="#structure" data-cursor="link">Structure</a></li><li><a href="#pillars" data-cursor="link">9 Pillars</a></li><li><a href="#faqs" data-cursor="link">FAQs</a></li></ul></div>
+    <div><h4>Startups</h4><ul><li><a href="#startups" data-cursor="link">Alumni</a></li><li><a href="#testimonials" data-cursor="link">Testimonials</a></li><li><a href="#apply" data-cursor="link">Apply</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="mailto:programs@oraseyacapital.com" data-cursor="link">programs@oraseyacapital.com</a></li><li><a href="https://www.sandboxaccelerator.com/" data-cursor="link">sandboxaccelerator.com</a></li></ul>
+      <div class="social">
+        <a href="#" aria-label="LinkedIn" data-cursor="link"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+        <a href="#" aria-label="Instagram" data-cursor="link"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 0 0-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
+      </div></div>
+  </div>
+  <div class="newsletter">
+    <div>
+      <span class="eyebrow">Newsletter</span>
+      <h3 class="h-sm" style="margin-top:14px;max-width:18ch">Cohort news, deadlines and Demo Day invites. Once a month, no noise.</h3>
+    </div>
+    <form class="nl-form" id="nlForm" novalidate>
+      <label class="sr" for="nlEmail">Email address</label>
+      <input id="nlEmail" type="email" name="email" placeholder="you@startup.com" autocomplete="email" required>
+      <button class="btn btn-solid" type="submit" data-cursor="link"><span class="lbl"><span>Subscribe</span><span>Subscribe</span></span></button>
+      <p class="nl-note" id="nlNote">By subscribing you agree to receive emails from Oraseya Capital. Unsubscribe anytime.</p>
+    </form>
+  </div>
+  <div class="bottom"><span>© 2026 Oraseya Capital · SANDBOX</span><span>Dubai, United Arab Emirates</span><span>Privacy · Terms</span></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+/* ═══════════════════════════ SETUP ═══════════════════════════ */
+gsap.registerPlugin(ScrollTrigger);
+const CAPTURE = /[?&]capture=1/.test(location.search);
+if(CAPTURE){ document.body.classList.add('capture'); document.documentElement.style.background='#fff'; const off=parseInt((location.search.match(/[?&]offset=(\d+)/)||[])[1]||0); if(off){ document.body.style.marginTop=(-off)+'px'; document.getElementById('nav').style.display='none'; } }
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches || CAPTURE;
+const isTouch = matchMedia('(hover: none)').matches;
+
+/* smooth scroll */
+let lenis;
+if(!reduce){
+  lenis = new Lenis({ lerp: 0.085, smoothWheel: true });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000));
+  gsap.ticker.lagSmoothing(0);
+  lenis.stop();
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(!t) return; e.preventDefault();
+    lenis ? lenis.scrollTo(t,{offset:0,duration:1.6,easing:x=>1-Math.pow(1-x,4)}) : t.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+/* ═══════════════════════════ SHADER ═══════════════════════════ */
+const VERT=`attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}`;
+const FRAG=`precision highp float;
+uniform vec2 uRes;uniform float uTime;uniform vec2 uMouse;uniform float uSeed;
+float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
+float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+ float a=hash(i),b=hash(i+vec2(1,0)),c=hash(i+vec2(0,1)),d=hash(i+vec2(1,1));
+ return mix(mix(a,b,f.x),mix(c,d,f.x),f.y);}
+float fbm(vec2 p){float v=0.,a=.5;mat2 m=mat2(1.6,1.2,-1.2,1.6);
+ for(int i=0;i<5;i++){v+=a*noise(p);p=m*p;a*=.5;}return v;}
+void main(){
+ vec2 uv=gl_FragCoord.xy/uRes;vec2 p=uv;p.x*=uRes.x/uRes.y;
+ float t=uTime*.07+uSeed;
+ float ang=-.55+uMouse.x*.08;mat2 R=mat2(cos(ang),-sin(ang),sin(ang),cos(ang));
+ vec2 q=R*(p-vec2(.5*uRes.x/uRes.y,.5));
+ q+= (uMouse-.5)*.12;
+ vec2 s=vec2(q.x*.42,q.y*1.15);
+ vec2 w=vec2(fbm(s*2.2+t),fbm(s*2.2-t*.8+7.3));
+ float n=fbm(s*2.6+w*1.6+t*.3);
+ float streak=fbm(vec2(q.x*9.,q.y*.55-t*1.8));
+ float soft=fbm(vec2(q.x*2.,q.y*.3+t*.5));
+ vec3 c0=vec3(.20,.015,0.);vec3 c1=vec3(.60,.06,.0);vec3 c2=vec3(.925,.262,.074);
+ vec3 c3=vec3(1.,.384,0.);vec3 c4=vec3(.988,.62,.39);vec3 c5=vec3(1.,.86,.72);
+ vec3 col=mix(c0,c1,smoothstep(.12,.34,n));
+ col=mix(col,c2,smoothstep(.30,.48,n));
+ col=mix(col,c3,smoothstep(.44,.64,n));
+ col=mix(col,c4,smoothstep(.62,.86,n));
+ col+=c4*.35*smoothstep(.55,.95,streak)*smoothstep(.3,.8,soft);
+ col+=c5*.18*smoothstep(.78,1.,streak*n*1.6);
+ float v=1.-smoothstep(.35,1.15,length(uv-vec2(.5,.45))*1.25);
+ col*=mix(.6,1.12,v);
+ col+= (hash(gl_FragCoord.xy+uTime)-.5)*.035;
+ gl_FragColor=vec4(col,1.);}`;
+
+function makeShader(canvas, seed){
+  const gl=canvas.getContext('webgl',{antialias:false,alpha:false,powerPreference:'high-performance'});
+  if(!gl) return null;
+  const sh=(t,s)=>{const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);
+    if(!gl.getShaderParameter(o,gl.COMPILE_STATUS)){console.error(gl.getShaderInfoLog(o));return null;}return o;};
+  const vs=sh(gl.VERTEX_SHADER,VERT),fs=sh(gl.FRAGMENT_SHADER,FRAG);
+  if(!vs||!fs) return null;
+  const pr=gl.createProgram();gl.attachShader(pr,vs);gl.attachShader(pr,fs);gl.linkProgram(pr);gl.useProgram(pr);
+  const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+  const loc=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  const uRes=gl.getUniformLocation(pr,'uRes'),uTime=gl.getUniformLocation(pr,'uTime'),uMouse=gl.getUniformLocation(pr,'uMouse'),uSeed=gl.getUniformLocation(pr,'uSeed');
+  gl.uniform1f(uSeed,seed);
+  const st={gl,mouse:[.5,.5],target:[.5,.5],visible:true,w:0,h:0};
+  const resize=()=>{const dpr=Math.min(devicePixelRatio,1.5)*0.6;
+    st.w=canvas.width=Math.floor(canvas.clientWidth*dpr);st.h=canvas.height=Math.floor(canvas.clientHeight*dpr);
+    gl.viewport(0,0,st.w,st.h);gl.uniform2f(uRes,st.w,st.h);};
+  resize();addEventListener('resize',resize);
+  const start=performance.now();
+  st.draw=()=>{
+    if(!st.visible) return;
+    st.mouse[0]+=(st.target[0]-st.mouse[0])*.04;st.mouse[1]+=(st.target[1]-st.mouse[1])*.04;
+    gl.uniform1f(uTime,(performance.now()-start)/1000);
+    gl.uniform2f(uMouse,st.mouse[0],st.mouse[1]);
+    gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+  };
+  new IntersectionObserver(e=>{st.visible=e[0].isIntersecting;},{threshold:0}).observe(canvas);
+  return st;
+}
+const heroGL=makeShader(document.getElementById('heroCanvas'),0.0);
+const finalGL=makeShader(document.getElementById('finalCanvas'),4.2);
+if(!heroGL){document.getElementById('heroFallback').style.display='block';}
+gsap.ticker.add(()=>{heroGL&&heroGL.draw();finalGL&&finalGL.draw();});
+addEventListener('pointermove',e=>{
+  const x=e.clientX/innerWidth,y=1-e.clientY/innerHeight;
+  if(heroGL){heroGL.target=[x,y];} if(finalGL){finalGL.target=[x,y];}
+});
+
+/* ═══════════════════════════ CURSOR ═══════════════════════════ */
+const cur=document.getElementById('cursor');
+if(!isTouch){
+  const pos={x:innerWidth/2,y:innerHeight/2},tgt={...pos};
+  addEventListener('pointermove',e=>{tgt.x=e.clientX;tgt.y=e.clientY;});
+  const dot=cur.querySelector('.cursor-dot'),ring=cur.querySelector('.cursor-ring'),lbl=ring.querySelector('span');
+  gsap.ticker.add(()=>{
+    pos.x+=(tgt.x-pos.x)*.18;pos.y+=(tgt.y-pos.y)*.18;
+    dot.style.transform=`translate(${tgt.x}px,${tgt.y}px) translate(-50%,-50%)`;
+    ring.style.transform=`translate(${pos.x}px,${pos.y}px) translate(-50%,-50%)`;
+  });
+  ring.style.transition='width .3s,height .3s,background .3s';
+  document.addEventListener('pointerover',e=>{
+    const t=e.target.closest('[data-cursor]');
+    cur.classList.remove('is-link','is-drag','is-view');
+    if(!t) return;
+    const k=t.dataset.cursor; cur.classList.add('is-'+k);
+    lbl.textContent = k==='drag' ? 'DRAG' : k==='view' ? 'VIEW' : '';
+  });
+  /* enlarge ring instead of scale transform conflicts */
+  const style=document.createElement('style');
+  style.textContent=`.cursor.is-link .cursor-ring{width:76px;height:76px}.cursor.is-drag .cursor-ring{width:100px;height:100px}.cursor.is-view .cursor-ring{width:92px;height:92px}.cursor-ring{transition:width .35s var(--ease),height .35s var(--ease),background .3s!important;transform:none}`;
+  document.head.appendChild(style);
+}
+
+/* ═══════════════════════════ MAGNETIC ═══════════════════════════ */
+if(!isTouch){
+  document.querySelectorAll('.magnet').forEach(el=>{
+    const strength=.35;
+    el.addEventListener('pointermove',e=>{
+      const r=el.getBoundingClientRect();
+      const x=(e.clientX-r.left-r.width/2)*strength,y=(e.clientY-r.top-r.height/2)*strength;
+      gsap.to(el,{x,y,duration:.6,ease:'power3.out'});
+    });
+    el.addEventListener('pointerleave',()=>gsap.to(el,{x:0,y:0,duration:.9,ease:'elastic.out(1,.4)'}));
+  });
+}
+
+/* ═══════════════════════════ HELPERS ═══════════════════════════ */
+function splitWords(el){
+  const nodes=[...el.childNodes];el.innerHTML='';
+  nodes.forEach(n=>{
+    if(n.nodeType===3){n.textContent.split(/\s+/).filter(Boolean).forEach(w=>{const s=document.createElement('span');s.className='w';s.textContent=w;el.append(s,' ');});}
+    else{const hi=n.classList.contains('hi');n.textContent.split(/\s+/).filter(Boolean).forEach(w=>{const s=document.createElement('span');s.className='w'+(hi?' hi':'');s.textContent=w;el.append(s,' ');});}
+  });
+  return [...el.querySelectorAll('.w')];
+}
+
+/* ═══════════════════════════ TESTIMONIALS ═══════════════════════════ */
+const TESTI=[
+ ["Our experience at SANDBOX has been nothing short of exceptional. The environment is one that fosters creativity, collaboration, and hard work, and we are excited to see where this journey takes us.","Luigi Senese","CEO & co-founder, AI Gen Lab"],
+ ["SANDBOX is a really high-quality program that equips startups with all the tools and mentorship one can ask for. From launching a product to scaling in the UAE market, it's a one-stop shop for all your startup needs.","Huzaifa Hameed","CEO & Founder, Hulexo"],
+ ["SANDBOX has really invested huge time, effort, and money to support its startups… unlike any other program for sure!","Haisam Jamal","CEO & co-founder, Distichain"],
+ ["If you know your WHY, SANDBOX is a good place to learn HOW! A place to make 0 to 1.","Enver Sorkun","former CEO & Founder, Bitocast"],
+ ["A perfect environment to work in, SANDBOX is the right place to be if you want to push your startup and learn fast how to navigate out of your comfort zone.","Emmanuel Isenbrandt","CEO & Founder, Oslo Pet Insurance"],
+ ["I think SANDBOX is a great place to be at, the team is supportive and doing their best to push the startups to unlock their full potential. The content and the knowledge provided are both amazing. I was really impressed.","Mo Fouda","CEO & co-founder, Sketshare"],
+ ["We know how hard it would have been if we were not part of SANDBOX program to run our startup. Execution is lot easier now. The support and help are highly appreciated.","Anshuman Maini","CEO and Founder, Konspot"],
+ ["In short, SANDBOX is a great program, really impactful and fruitful.","Muneeb Anjum","CEO & co-founder, AHAD"],
+ ["SANDBOX is a comprehensive program for early-stage entrepreneurs. If you are serious about your startup, you should be serious about joining SANDBOX.","Ibrahim Youssef","CEO & co-founder, iSchool"],
+ ["SANDBOX is a very practical, lively and founder-need-centric startup program offering mentors of the highest caliber. The program team are big enthusiasts, they really love what they do and very attentive to every startup and founder.","Alex Fedunov","CEO & co-founder, Villa Cotton"],
+ ["Absolutely fantastic structure supporting startups getting ready for growth. Would recommend to anyone wanting to have their startup setup done correctly from get go!","Joonas Jantunen","CEO, CollectiveSpend"],
+ ["As a startup founder, you are exposed to risks and problems on daily basis and you have to be relentless in solving such problems. Having SANDBOX by your side allows you to solve 10x more problems and make better decisions — day in and day out.","Hasan Wehbi","CEO & co-founder, DUDI"],
+];
+const FACES=["luigi-senese", "huzaifa-hameed", "haisam-jamal", "enver-sorkun", "emmanuel-isenbrandt", "mo-fouda", "anshuman-maini", "muneeb-anjum", "ibrahim-youssef", "alex-fedunov", "joonas-jantunen", "hasan-wehbi"];
+const card=([q,n,r],i)=>`<figure class="quote"><div class="m">“</div><p>${q}</p><footer><img class="av" src="assets/faces/${FACES[i]}.jpg" alt="" loading="lazy"><span><b>${n}</b>${r}</span></footer></figure>`;
+const rowA=document.getElementById('rowA'),rowB=document.getElementById('rowB');
+const mk=(a,o)=>a.map((t,i)=>card(t,i+o)).join('');
+rowA.innerHTML=mk(TESTI.slice(0,6),0)+mk(TESTI.slice(0,6),0);
+rowB.innerHTML=mk(TESTI.slice(6),6)+mk(TESTI.slice(6),6);
+
+/* ═══════════════════════════ MARQUEES (ticker + rows) ═══════════════════════════ */
+const tickers=[];
+document.querySelectorAll('.marquee .track').forEach(tr=>{
+  tickers.push({el:tr,x:0,speed:parseFloat(tr.dataset.speed||1),dir:1,hover:false});
+});
+document.querySelectorAll('.logo-row').forEach(r=>{
+  const o={el:r.querySelector('.logo-track'),x:0,speed:parseFloat(r.dataset.speed||.4),dir:parseFloat(r.dataset.dir),hover:false};
+  r.addEventListener('pointerenter',()=>o.hover=true);r.addEventListener('pointerleave',()=>o.hover=false);
+  tickers.push(o);
+});
+[rowA,rowB].forEach(r=>{
+  const o={el:r,x:0,speed:.5,dir:parseFloat(r.dataset.dir),hover:false};
+  r.addEventListener('pointerenter',()=>o.hover=true);r.addEventListener('pointerleave',()=>o.hover=false);
+  tickers.push(o);
+});
+let scrollVel=0;
+gsap.ticker.add(()=>{
+  tickers.forEach(o=>{
+    const half=o.el.scrollWidth/2; if(!half) return;
+    const v=(o.hover?0.08:1)*(o.speed+Math.min(Math.abs(scrollVel)*.02,6));
+    o.x-=v*o.dir;
+    if(o.dir>0 && o.x<=-half) o.x+=half;
+    if(o.dir<0 && o.x>=0) o.x-=half;
+    o.el.style.transform=`translate3d(${o.x}px,0,0)`;
+  });
+  scrollVel*=.9;
+});
+if(lenis) lenis.on('scroll',e=>{scrollVel=e.velocity;});
+
+/* ═══════════════════════════ LOADER ═══════════════════════════ */
+const loader=document.getElementById('loader');
+function startLoader(){
+  const tl=gsap.timeline({defaults:{ease:'power3.out'}});
+  tl.to('.loader-tag b',{y:0,duration:1,stagger:.1},0)
+    .to('#ldBar',{scaleX:1,duration:2.4,ease:'expo.out'},.3)
+    .to('.loader-line .spark',{left:'100%',duration:2.4,ease:'expo.out'},.3)
+    .fromTo('.loader-line .spark',{opacity:0},{opacity:1,duration:.5},.3)
+    .to('.loader-line .glow',{scaleX:1,opacity:1,duration:2.4,ease:'expo.out'},.3)
+    .to('.loader-line .spark',{opacity:0,duration:.6},2.0)
+    .fromTo('.loader-word',{opacity:0,scale:.55,filter:'blur(18px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:2.2,ease:'expo.out'},.2)
+    .fromTo('.loader-word img',{scaleX:.22},{scaleX:1,duration:2.8,ease:'expo.out'},.2)
+    .to('#ldCurtain',{y:'0%',duration:.8,ease:'expo.inOut'},2.3)
+    .to('.loader-inner, .loader-tag',{opacity:0,duration:.3},2.5)
+    .to(loader,{yPercent:-100,duration:1,ease:'expo.inOut'},2.9)
+    .add(heroIn,3.0)
+    .set(loader,{display:'none'});
+  if(reduce){tl.progress(1);}
+}
+function heroIn(){
+  if(lenis) lenis.start();
+  const tl=gsap.timeline({defaults:{ease:'expo.out'}});
+  tl.to('#nav',{y:0,duration:1.2},0)
+        .to('.hero-sub .oc',{opacity:1,duration:1},.35)
+    .to('.hero-h .line span',{y:0,duration:1.3,stagger:.1},.4)
+    .to('.hero-lead',{opacity:1,y:0,duration:1},.9)
+    .to('.hero-stats div',{opacity:1,y:0,duration:1.1,stagger:.12},.9)
+    .to('.hero-cta',{opacity:1,y:0,duration:1},1.1)
+    .to('.scroll-cue',{opacity:1,duration:1},1.8);
+}
+if(CAPTURE){ document.getElementById('loader').style.display='none'; document.getElementById('nav').style.transform='none'; }
+else (document.fonts&&document.fonts.ready?Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,900))]):Promise.resolve()).then(startLoader);
+
+/* ═══════════════════════════ MOBILE MENU ═══════════════════════════ */
+const menu=document.getElementById('menu'),burger=document.getElementById('burger');
+let menuOpen=false;
+function toggleMenu(force){
+  menuOpen = force===undefined ? !menuOpen : force;
+  document.body.classList.toggle('menu-open',menuOpen);
+  menu.classList.toggle('on',menuOpen);
+  if(menuOpen){ lenis&&lenis.stop();
+    gsap.timeline().to(menu,{clipPath:'inset(0 0 0% 0)',duration:.9,ease:'expo.inOut'})
+      .to('.menu a.big span',{y:0,duration:1,stagger:.07,ease:'expo.out'},'-=.4');
+  } else { lenis&&lenis.start();
+    gsap.timeline().to('.menu a.big span',{y:'110%',duration:.4,stagger:.03,ease:'power2.in'})
+      .to(menu,{clipPath:'inset(0 0 100% 0)',duration:.8,ease:'expo.inOut'},'-=.1');
+  }
+}
+burger.addEventListener('click',()=>toggleMenu());
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
+
+/* ═══════════════════════════ SCROLL FX ═══════════════════════════ */
+/* hero parallax */
+gsap.to('.hero-inner',{yPercent:18,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+gsap.to('.hero-deco',{yPercent:-30,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+/* generic reveals */
+document.querySelectorAll('.rv').forEach(el=>{
+  gsap.to(el,{opacity:1,y:0,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}});
+});
+document.querySelectorAll('.rv-l').forEach(el=>{
+  gsap.to(el.querySelectorAll('.line span'),{y:0,duration:1.3,stagger:.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 85%'}});
+});
+/* parallax decos */
+document.querySelectorAll('[data-parallax]').forEach(el=>{
+  gsap.to(el,{yPercent:parseFloat(el.dataset.parallax)*100*3,rotate:30,ease:'none',scrollTrigger:{trigger:el.parentElement,start:'top bottom',end:'bottom top',scrub:true}});
+});
+
+/* word-by-word intro */
+document.querySelectorAll('[data-words]').forEach(p=>{
+  const words=splitWords(p);
+  ScrollTrigger.create({trigger:p,start:'top 80%',end:'bottom 45%',scrub:true,
+    onUpdate:s=>{const n=Math.floor(s.progress*words.length);words.forEach((w,i)=>w.classList.toggle('on',i<=n));}});
+});
+/* pull quote words rise */
+document.querySelectorAll('[data-pull]').forEach(p=>{
+  const words=splitWords(p);
+  gsap.to(words,{y:0,opacity:1,duration:1,stagger:.03,ease:'expo.out',scrollTrigger:{trigger:p,start:'top 80%'}});
+});
+
+/* counters */
+document.querySelectorAll('[data-count]').forEach(el=>{
+  const end=parseFloat(el.dataset.count);const o={v:0};
+  ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:()=>gsap.to(o,{v:end,duration:2,ease:'power3.out',onUpdate:()=>el.textContent=Math.round(o.v).toLocaleString('en-US')})});
+});
+
+/* benefits grid reveal */
+gsap.from('.edge-grid .tile',{y:40,opacity:0,stagger:.06,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:'.edge-grid',start:'top 80%'}});
+
+/* timeline */
+const steps=[...document.querySelectorAll('.step')];
+gsap.to('#tlProg',{scaleY:1,ease:'none',scrollTrigger:{trigger:'#timeline',start:'top 60%',end:'bottom 60%',scrub:true}});
+steps.forEach(s=>{
+  ScrollTrigger.create({trigger:s,start:'top 62%',end:'bottom 62%',onEnter:()=>s.classList.add('on'),onLeaveBack:()=>s.classList.remove('on')});
+  gsap.from(s,{opacity:.25,x:30,duration:1,ease:'expo.out',scrollTrigger:{trigger:s,start:'top 85%'}});
+});
+
+/* pillars spotlight */
+document.querySelectorAll('.pillar').forEach(p=>{
+  p.addEventListener('pointermove',e=>{const r=p.getBoundingClientRect();p.style.setProperty('--mx',(e.clientX-r.left)+'px');p.style.setProperty('--my',(e.clientY-r.top)+'px');});
+});
+
+/* FAQ */
+document.querySelectorAll('.faq').forEach(f=>{
+  const b=f.querySelector('button'),a=f.querySelector('.a');
+  b.setAttribute('data-cursor','link');
+  b.addEventListener('click',()=>{
+    const open=f.classList.toggle('open');
+    gsap.to(a,{height:open?'auto':0,duration:.7,ease:'expo.inOut',onUpdate:ScrollTrigger.refresh});
+  });
+});
+
+/* final */
+gsap.to('.final h2 .line span',{y:0,duration:1.4,stagger:.12,ease:'expo.out',scrollTrigger:{trigger:'.final',start:'top 60%'}});
+gsap.from('.final .mark',{scale:0,rotate:-40,duration:1.4,ease:'expo.out',scrollTrigger:{trigger:'.final',start:'top 60%'}});
+
+/* newsletter (no backend yet: shows confirmation only) */
+document.getElementById('nlForm').addEventListener('submit',e=>{
+  e.preventDefault();const f=e.currentTarget,i=f.querySelector('input');
+  if(!i.checkValidity()){i.focus();gsap.fromTo(i,{x:-6},{x:0,duration:.5,ease:'elastic.out(1,.3)'});return;}
+  f.classList.add('done');document.getElementById('nlNote').textContent='You’re on the list. We’ll write when the next cohort opens.';
+});
+
+/* top fade tint follows light sections */
+document.querySelectorAll('.light').forEach(sec=>{ScrollTrigger.create({trigger:sec,start:'top 70px',end:'bottom 70px',toggleClass:{targets:document.body,className:'on-light'}});});
+
+/* nav shrink */
+ScrollTrigger.create({start:'top -80',onUpdate:s=>{document.getElementById('nav').style.padding=s.scroll()>80?'14px var(--gutter)':'22px var(--gutter)';}});
+
+
+/* ═════ logo variant A/B (review only) ═════ */
+(function(){
+  const sw=document.getElementById('logoSwitch');if(!sw)return;
+  const imgs=[...document.querySelectorAll('img[src*="wordmark"]:not([data-fixed])')];
+  const inline=document.querySelector('svg.wm');
+  let bold=inline?inline.innerHTML:null, boldVB=inline?inline.getAttribute('viewBox'):null, thinSVG=null;
+  function apply(v){
+    const FILE={bold:'wordmark.svg',thin:'wordmark-thin.svg',compact:'wordmark-compact.svg'}[v]||'wordmark.svg';
+    imgs.forEach(i=>i.src=i.src.replace(/wordmark(-thin|-compact)?\.svg/, FILE));
+    sw.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+    document.documentElement.dataset.logo=v;
+    try{localStorage.setItem('sbLogo',v);}catch(e){}
+    if(inline){
+      if(v==='bold'){inline.innerHTML=bold;inline.setAttribute('viewBox',boldVB);const L=inline.querySelector('#letters');if(L&&document.getElementById('loader')&&getComputedStyle(document.getElementById('loader')).display==='none')L.style.clipPath='inset(0 0 0 0)';const S=inline.querySelector('.slash');if(S&&L&&L.style.clipPath)S.style.opacity=1,S.style.transform='none';}
+      else{
+        const put=t=>{const d=new DOMParser().parseFromString(t,'image/svg+xml').documentElement;inline.setAttribute('viewBox',d.getAttribute('viewBox'));inline.innerHTML=d.innerHTML;const L=inline.querySelector('#letters');if(L)L.style.clipPath='inset(0 0 0 0)';};
+        thinSVG?put(thinSVG):fetch('assets/wordmark-thin.svg?v=1792676642').then(r=>r.text()).then(t=>{thinSVG=t;put(t);}).catch(()=>{});
+      }
+    }
+  }
+  let v='bold';try{v=localStorage.getItem('sbLogo')||'bold';}catch(e){}
+  const q=(location.hash.match(/^#logo-(thin|bold|compact)$/)||[])[1]; if(q)v=q;
+  sw.addEventListener('click',e=>{const b=e.target.closest('button');if(b)apply(b.dataset.v);});
+  apply(v);
+})();
+
+if(CAPTURE){
+  ScrollTrigger.getAll().forEach(t=>t.kill());
+  gsap.globalTimeline.getChildren(true,true,false).forEach(t=>{try{t.progress(1)}catch(e){}});
+  document.querySelectorAll('[data-count]').forEach(el=>el.textContent=parseFloat(el.dataset.count).toLocaleString('en-US'));
+  document.querySelectorAll('.big-copy .w').forEach(w=>w.classList.add('on'));
+  document.querySelectorAll('.step').forEach(st=>st.classList.add('on'));
+  gsap.set('.rv, .hero-stats div, .hero-cta, .hero-lead, .hero-sub .oc, .rv-l .line span, .hero-h .line span, .final h2 .line span, .record .pull .w, .edge-grid .tile, .step, .final .mark',{clearProps:'all'});
+  document.body.classList.add('capture');
+}
+addEventListener('load',()=>setTimeout(()=>ScrollTrigger.refresh(),500));
+</script>
+</body>
+</html>

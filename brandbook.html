@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>SANDBOX Brand Book</title>
+<meta name="description" content="Brand strategy and visual identity guidelines for SANDBOX by Oraseya Capital, derived from the 2026 website.">
+<link rel="icon" href="assets/sb-mark.svg?v=1792676642" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: a black editorial book. Fixed chapter rail on the left, long-scroll chapters on the right,
+   each chapter opened by an oversized number + title; specimens shown on live surfaces, not screenshots. */
+:root{
+  --bg:#050505; --ink:#0c0c0c; --fg:#ffffff; --fg-2:rgba(255,255,255,.68); --fg-3:rgba(255,255,255,.42);
+  --line:rgba(255,255,255,.12); --paper:#f4f1ec; --paper-fg:#0a0a0a;
+  --orange:#FF6200; --ember:#EC4313; --peach:#FC9E64; --deep:#7A0A00; --cream:#FFE0CC;
+  --grad:linear-gradient(135deg,#EC4313 0%,#FF6200 45%,#FC9E64 100%);
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --gutter:clamp(20px,4vw,64px);
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--orange);color:#000}
+h1,h2,h3,h4{text-wrap:balance}
+
+/* type roles */
+.eyebrow{font-weight:300;font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--fg-2);display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--orange)}
+.display{font-weight:800;letter-spacing:-.04em;line-height:.95}
+.h1{font-size:clamp(44px,8vw,128px)}
+.h2{font-size:clamp(34px,5vw,80px)}
+.h3{font-size:clamp(22px,2.2vw,32px);font-weight:700;letter-spacing:-.025em;line-height:1.1}
+.lead{font-size:clamp(17px,1.3vw,21px);color:var(--fg-2);max-width:60ch}
+p{max-width:66ch}
+.num{font-weight:200;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.label{font-weight:300;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--fg-3)}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* shell */
+.shell{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh}
+.rail{min-width:0;position:sticky;top:0;height:100vh;padding:34px 28px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:34px}
+.rail .brand{display:flex;align-items:center;gap:12px}
+.rail .brand img{height:28px;width:auto}
+.rail .brand span{font-size:10px;letter-spacing:.32em;text-transform:uppercase;font-weight:300;color:var(--fg-2)}
+.rail ol{min-width:0;list-style:none;display:flex;flex-direction:column;gap:4px;overflow:auto}
+.rail li a{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:baseline;padding:8px 10px;border-radius:8px;font-size:12.5px;font-weight:500;color:var(--fg-2);transition:background .3s,color .3s}
+.rail li a i{font-style:normal;font-weight:200;font-size:11px;letter-spacing:.1em;color:var(--fg-3)}
+.rail li a:hover,.rail li a.on{background:rgba(255,255,255,.06);color:#fff}
+.rail li a.on i{color:var(--peach)}
+.rail .foot{margin-top:auto;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--fg-3);line-height:1.8}
+.main{min-width:0}
+@media(max-width:1000px){
+  .shell{grid-template-columns:minmax(0,1fr)}
+  .rail{position:sticky;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:16px var(--gutter);flex-direction:row;align-items:center;gap:16px;background:rgba(5,5,5,.92);backdrop-filter:blur(10px);z-index:50}
+  .rail ol{flex-direction:row;gap:0;flex:1;overflow-x:auto;scrollbar-width:none}
+  .rail ol::-webkit-scrollbar{display:none}
+  .rail li a{grid-template-columns:auto;white-space:nowrap;padding:6px 10px}
+  .rail li a i{display:none}
+  .rail .foot{display:none}
+}
+
+/* chapters */
+.chapter{padding:clamp(72px,9vw,140px) var(--gutter);border-bottom:1px solid var(--line);position:relative}
+.chapter.paper{background:var(--paper);color:var(--paper-fg)}
+.chapter.paper .eyebrow,.chapter.paper .lead,.chapter.paper .label{color:rgba(0,0,0,.6)}
+.chapter.paper .label{color:rgba(0,0,0,.45)}
+.ch-head{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,60px);align-items:end;margin-bottom:clamp(40px,6vw,96px)}
+.ch-head .no{font-weight:200;font-size:clamp(80px,12vw,200px);letter-spacing:-.06em;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35)}
+.chapter.paper .ch-head .no{-webkit-text-stroke:1px rgba(0,0,0,.3)}
+.ch-head .lead{margin-top:22px}
+@media(max-width:700px){.ch-head{grid-template-columns:1fr}}
+.block{margin-top:clamp(48px,6vw,96px)}
+.block > .label{display:block;margin-bottom:18px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,64px);align-items:start}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,28px)}
+@media(max-width:900px){.two,.three,.four{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.two,.three,.four{grid-template-columns:1fr}}
+.two>*{min-width:0}
+.rule{height:1px;background:var(--line);margin-block:clamp(28px,4vw,56px)}
+.chapter.paper .rule{background:rgba(0,0,0,.12)}
+.note{font-size:13px;color:var(--fg-3);max-width:60ch;margin-top:14px}
+.chapter.paper .note{color:rgba(0,0,0,.5)}
+
+/* cover */
+.cover{min-height:min(92vh,980px);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(72px,9vw,140px) var(--gutter) clamp(36px,5vw,64px);background:#0a0300;border-bottom:1px solid var(--line)}
+.cover canvas{position:absolute;inset:0;width:100%;height:100%}
+.cover .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.5),rgba(5,5,5,0) 35%,rgba(5,5,5,0) 55%,rgba(5,5,5,.92))}
+.cover .grain{position:absolute;inset:0;opacity:.14;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.cover .in{position:relative;z-index:2}
+.cover .top{position:absolute;top:clamp(30px,4vw,48px);left:var(--gutter);right:var(--gutter);display:flex;justify-content:space-between;align-items:center;z-index:2;flex-wrap:wrap;gap:12px}
+.cover .wm{width:min(100%,1100px);height:auto;margin-bottom:28px}
+.cover .meta{display:grid;grid-template-columns:repeat(3,auto);gap:clamp(20px,5vw,80px);padding-top:24px;border-top:1px solid rgba(255,255,255,.2);margin-top:30px;width:fit-content}
+.cover .meta b{display:block;font-weight:700;font-size:clamp(18px,2vw,30px);letter-spacing:-.03em}
+.cover .meta small{display:block;margin-top:6px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:300;color:var(--fg-2)}
+@media(max-width:600px){.cover .meta{grid-template-columns:1fr}}
+
+/* strategy pieces */
+.pillar-list{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.pillar-list div{background:var(--bg);padding:26px 22px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between}
+.pillar-list b{font-size:clamp(18px,1.4vw,22px);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.pillar-list p{font-size:13px;color:var(--fg-2);margin-top:12px}
+@media(max-width:1100px){.pillar-list{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.pillar-list{grid-template-columns:1fr}}
+.thesis{font-size:clamp(28px,4.2vw,66px);font-weight:600;letter-spacing:-.035em;line-height:1.05;max-width:20ch}
+.thesis em{font-style:normal;color:var(--peach)}
+.msg{display:grid;grid-template-columns:140px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
+.msg:last-child{border-bottom:1px solid var(--line)}
+.msg .k{font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;color:var(--peach);padding-top:6px}
+.msg .v{font-size:clamp(18px,1.6vw,26px);font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.msg .v small{display:block;font-size:14px;font-weight:400;color:var(--fg-2);margin-top:8px;letter-spacing:0}
+@media(max-width:600px){.msg{grid-template-columns:1fr;gap:8px}}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.dd>div{background:var(--bg);padding:26px}
+.chapter.paper .dd>div{background:var(--paper)}
+.dd h4{font-size:10px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.dd h4 i{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.dd .no h4 i{background:transparent;border:1px solid currentColor;opacity:.5}
+.dd ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.dd li{font-size:15px;line-height:1.45;padding-left:18px;position:relative}
+.dd li::before{content:"";position:absolute;left:0;top:.65em;width:8px;height:1px;background:currentColor;opacity:.5}
+@media(max-width:600px){.dd{grid-template-columns:1fr}}
+
+/* logo */
+.surface{border:1px solid var(--line);border-radius:16px;padding:clamp(24px,4vw,56px);display:grid;place-items:center;min-height:220px;position:relative;overflow:hidden}
+.surface.black{background:#050505}
+.surface.white{background:#fff;border-color:rgba(0,0,0,.1)}
+.surface.orange{background:var(--grad)}
+.surface.photo{background:url(assets/blur.jpg?v=1792676642) center/cover}
+.surface .cap{position:absolute;left:18px;bottom:14px;font-size:9px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;color:rgba(255,255,255,.5)}
+.surface.white .cap{color:rgba(0,0,0,.45)}
+.lockup{display:flex;align-items:center;gap:clamp(14px,2vw,28px)}
+.lockup .mark{height:clamp(44px,5vw,76px);width:auto}
+.lockup .txt{display:flex;flex-direction:column;gap:clamp(6px,.8vw,12px);align-items:flex-start}
+.lockup .word{height:clamp(18px,2.1vw,32px);width:auto}
+.lockup .oc{height:clamp(7px,.8vw,12px);width:auto}
+.lockup.stack{flex-direction:column;gap:clamp(16px,2vw,28px)}
+.lockup.stack .txt{align-items:center}
+.lockup.mono .mark,.lockup.mono .word,.lockup.mono .oc{filter:brightness(0) invert(1)}
+.lockup.ink .mark,.lockup.ink .word,.lockup.ink .oc{filter:brightness(0)}
+.anatomy{position:relative;padding:clamp(40px,6vw,80px);border:1px solid var(--line);border-radius:16px;display:grid;place-items:center}
+.anatomy .tag{position:absolute;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--peach);display:flex;align-items:center;gap:8px}
+.anatomy .tag::before{content:"";width:22px;height:1px;background:var(--peach)}
+.anatomy .t1{left:12%;top:16px}.anatomy .t2{left:46%;top:16px}.anatomy .t3{left:46%;bottom:16px}.anatomy .t4{right:6%;top:16px}
+.anatomy .t4::before{display:none}.anatomy .t4::after{content:"";width:22px;height:1px;background:var(--peach)}
+.clear{position:relative;display:inline-block;padding:clamp(28px,4vw,56px);border:1px dashed rgba(255,98,0,.6);border-radius:8px}
+.clear::before,.clear::after{position:absolute;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--peach)}
+.clear::before{content:"X = height of the S";left:50%;top:-18px;transform:translateX(-50%);white-space:nowrap}
+.clear .mark{height:clamp(44px,5vw,76px);width:auto}
+.xrow{display:flex;gap:clamp(16px,2vw,28px);align-items:center;flex-wrap:wrap}
+.xrow .x{height:60px;width:auto}
+.minsize{display:flex;gap:40px;align-items:flex-end;flex-wrap:wrap}
+.minsize div{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.minsize img{width:auto}
+.minsize small{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--fg-3)}
+.fig{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#000}
+.fig img{width:100%;height:auto}
+.fig figcaption{padding:12px 16px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-3);border-top:1px solid var(--line)}
+
+/* color */
+.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.sw{aspect-ratio:1;padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.sw b{font-size:13px;font-weight:600;letter-spacing:-.01em}
+.sw span{font-size:11px;letter-spacing:.12em;font-variant-numeric:tabular-nums;opacity:.75}
+.sw.dark{color:#fff}.sw.lite{color:#000}
+.sw .pct{position:absolute;right:16px;top:14px;font-weight:200;font-size:26px;letter-spacing:-.04em}
+@media(max-width:900px){.swatches{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.swatches{grid-template-columns:repeat(2,1fr)}}
+.ratio{display:flex;height:56px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.ratio div{display:grid;place-items:center;font-size:10px;letter-spacing:.25em;text-transform:uppercase;font-weight:500}
+.gradbar{height:120px;border-radius:14px;background:var(--grad);position:relative}
+.gradbar span{position:absolute;bottom:12px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#000;font-weight:500}
+.contrast{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.contrast div{padding:22px;min-height:120px;display:flex;flex-direction:column;justify-content:space-between;font-weight:600;font-size:18px;letter-spacing:-.02em}
+.contrast small{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:400;opacity:.7}
+@media(max-width:700px){.contrast{grid-template-columns:1fr 1fr}}
+
+/* texture */
+.tex{position:relative;height:clamp(260px,40vw,520px);border-radius:16px;overflow:hidden;background:#0a0300;border:1px solid var(--line)}
+.tex canvas{position:absolute;inset:0;width:100%;height:100%}
+.tex .lab{position:absolute;left:20px;bottom:16px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#fff;z-index:2}
+.tex .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.3),rgba(5,5,5,0) 40%,rgba(5,5,5,.85))}
+.tex .copy{position:absolute;left:24px;right:24px;bottom:44px;z-index:2;font-weight:800;font-size:clamp(28px,4vw,56px);letter-spacing:-.04em;line-height:.95}
+.tex.still{background:url(assets/blur.jpg?v=1792676642) center/cover}
+.tex.sun{background:url(assets/sunset.jpg?v=1792676642) center/cover}
+
+/* type */
+.specimen{border-top:1px solid var(--line);padding:26px 0;display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:baseline}
+.specimen:last-child{border-bottom:1px solid var(--line)}
+.specimen .k{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-3);line-height:1.9}
+.specimen .k b{display:block;color:var(--fg);font-weight:500;letter-spacing:.2em}
+.specimen .s{min-width:0;overflow:hidden}
+@media(max-width:700px){.specimen{grid-template-columns:1fr;gap:10px}}
+.alphabet{font-weight:800;font-size:clamp(22px,4vw,64px);letter-spacing:-.04em;line-height:1;word-break:break-all}
+.alphabet.light{font-weight:200;letter-spacing:.2em}
+.scale{width:100%;border-collapse:collapse;font-size:13px}
+.scale th,.scale td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.scale th{font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:400;color:var(--fg-3)}
+.scale td:first-child{font-weight:600}
+.scale code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--peach)}
+.tablewrap{overflow-x:auto}
+
+/* motion */
+.moves{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.move{background:var(--bg);padding:24px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;cursor:pointer}
+.move .stage{height:110px;display:flex;align-items:center;justify-content:center;position:relative}
+.move b{font-size:16px;font-weight:700;letter-spacing:-.02em;display:block}
+.move p{font-size:13px;color:var(--fg-2);margin-top:6px}
+.move .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:var(--peach);margin-top:10px}
+@media(max-width:900px){.moves{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.moves{grid-template-columns:1fr}}
+.ease-wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.ease-wrap div{background:var(--bg);padding:22px}
+.ease-wrap svg{width:100%;height:auto}
+.ease-wrap b{display:block;font-size:14px;margin-top:10px}
+.ease-wrap small{display:block;font-size:12px;color:var(--fg-2);margin-top:4px}
+@media(max-width:700px){.ease-wrap{grid-template-columns:1fr}}
+
+/* components */
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:18px 34px;border-radius:999px;font-weight:600;font-size:13px;letter-spacing:.2em;text-transform:uppercase;overflow:hidden;isolation:isolate;cursor:pointer;border:0;font-family:inherit;color:inherit;background:none}
+.btn .lbl{position:relative;z-index:2;display:block;overflow:hidden}
+.btn .lbl span{display:block;transition:transform .6s var(--ease)}
+.btn .lbl span:last-child{position:absolute;top:0;left:0;transform:translateY(110%)}
+.btn:hover .lbl span:first-child{transform:translateY(-110%)}
+.btn:hover .lbl span:last-child{transform:translateY(0)}
+.btn-solid{background:#fff;color:#000}
+.btn-solid::before{content:"";position:absolute;inset:-2px;background:var(--grad);border-radius:inherit;transform:translateY(102%);transition:transform .6s var(--ease);z-index:1}
+.btn-solid:hover::before{transform:translateY(0)}
+.btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff}
+.btn-ghost::before{content:"";position:absolute;inset:0;background:#fff;border-radius:inherit;transform:translateY(102%);transition:transform .6s var(--ease);z-index:1}
+.btn-ghost:hover{color:#000}
+.btn-ghost:hover::before{transform:translateY(0)}
+.btn:focus-visible{outline:2px solid var(--peach);outline-offset:3px}
+.comp{border:1px solid var(--line);border-radius:16px;padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:22px}
+.comp .label{margin-bottom:0}
+.comp .demo{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+.stat b{display:block;font-weight:800;font-size:clamp(36px,4vw,64px);letter-spacing:-.04em;line-height:1}
+.stat b sup{font-size:.4em;vertical-align:top;color:var(--orange);font-weight:600;margin-left:2px}
+.stat small{display:block;margin-top:10px;font-size:10px;letter-spacing:.32em;text-transform:uppercase;font-weight:300;color:var(--fg-2)}
+.tag{display:inline-block;padding:8px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:10px;letter-spacing:.28em;text-transform:uppercase}
+.tag.hot{border-color:transparent;background:var(--grad);color:#000;font-weight:700}
+.quote{padding:28px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.02);max-width:440px}
+.quote .m{font-size:36px;line-height:.5;color:var(--orange);font-weight:800;margin-bottom:22px}
+.quote p{font-size:16px;line-height:1.5}
+.quote footer{margin-top:20px;display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-2)}
+.quote footer i{width:28px;height:28px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-style:normal;font-size:10px;font-weight:800;color:#000}
+.quote footer b{display:block;color:#fff;text-transform:none;letter-spacing:.06em;font-size:13px}
+.card{width:min(100%,300px);aspect-ratio:3/4;border-radius:22px;background:#fff;color:#000;padding:26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.card .n{font-weight:200;font-size:48px;letter-spacing:-.04em;line-height:1;color:rgba(0,0,0,.25)}
+.card p{font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1.15;max-width:100%}
+.card .x{position:absolute;right:-10px;bottom:-14px;width:110px;opacity:.06;filter:brightness(0)}
+.card.accent{background:var(--grad)}
+.pillar{background:var(--bg);border:1px solid var(--line);padding:26px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;--mx:50%;--my:50%;width:min(100%,320px)}
+.pillar::before{content:"";position:absolute;inset:0;background:radial-gradient(220px circle at var(--mx) var(--my),rgba(255,98,0,.3),transparent 60%);opacity:0;transition:opacity .5s}
+.pillar:hover::before{opacity:1}
+.pillar::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.pillar:hover::after{transform:scaleX(1)}
+.pillar .i{font-weight:200;font-size:13px;letter-spacing:.3em;color:var(--fg-3);display:flex;justify-content:space-between}
+.pillar .i img{width:16px;opacity:.6}
+.pillar h4{font-size:22px;letter-spacing:-.02em;margin-top:36px;position:relative;font-weight:700}
+.pillar p{margin-top:10px;color:var(--fg-2);font-size:14px;position:relative}
+
+/* applications */
+.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
+@media(max-width:900px){.apps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.apps{grid-template-columns:1fr}}
+.app{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#000;display:flex;flex-direction:column}
+.app .cv{position:relative;overflow:hidden;aspect-ratio:1;background:#050505}
+.app .cv.wide{aspect-ratio:16/9}
+.app .cv.tall{aspect-ratio:4/5}
+.app figcaption{padding:12px 16px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--fg-3);border-top:1px solid var(--line)}
+.post{position:absolute;inset:0;padding:8%;display:flex;flex-direction:column;justify-content:space-between;background:url(assets/blur.jpg?v=1792676642) center/cover}
+.post::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.2),rgba(5,5,5,.85))}
+.post>*{position:relative}
+.post .wm{width:60%}
+.post .big{font-weight:800;font-size:clamp(26px,3.2vw,44px);letter-spacing:-.045em;line-height:.92}
+.post .big em{font-style:normal;color:var(--peach)}
+.post .foot{display:flex;justify-content:space-between;align-items:flex-end;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.post .foot img{height:8px;width:auto}
+.slide{position:absolute;inset:0;background:#050505;padding:6% 7%;display:flex;flex-direction:column;justify-content:space-between}
+.slide .top{display:flex;justify-content:space-between;align-items:center;font-size:7px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-3)}
+.slide .top img{height:12px;width:auto}
+.slide .h{font-weight:800;font-size:clamp(22px,2.6vw,36px);letter-spacing:-.045em;line-height:.95;max-width:12ch}
+.slide .stats{display:grid;grid-template-columns:repeat(3,auto);gap:5%;border-top:1px solid var(--line);padding-top:4%}
+.slide .stats b{display:block;font-weight:700;font-size:clamp(14px,1.5vw,20px);letter-spacing:-.03em}
+.slide .stats b em{font-style:normal;color:var(--peach)}
+.slide .stats small{display:block;font-size:6px;letter-spacing:.25em;text-transform:uppercase;color:var(--fg-3);margin-top:4px}
+.badge{position:absolute;inset:0;background:var(--paper);display:grid;place-items:center;padding:10%}
+.badge .in{width:100%;aspect-ratio:3/4;background:#050505;border-radius:14px;padding:9%;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;color:#fff}
+.badge .in::after{content:"";position:absolute;right:-20%;bottom:-20%;width:80%;aspect-ratio:1;background:url(assets/x.svg?v=1792676642) center/contain no-repeat;opacity:.1}
+.badge .in img.m{width:28%;height:auto}
+.badge .in .nm{font-weight:800;font-size:clamp(16px,2vw,26px);letter-spacing:-.04em;line-height:1}
+.badge .in .nm small{display:block;font-weight:300;font-size:7px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-2);margin-top:8px}
+.badge .in .pill{align-self:flex-start;background:var(--grad);color:#000;font-size:7px;letter-spacing:.25em;text-transform:uppercase;font-weight:700;padding:5px 9px;border-radius:999px}
+.sig{position:absolute;inset:0;background:#fff;color:#000;padding:8%;display:flex;flex-direction:column;justify-content:center;gap:10px;font-size:11px;line-height:1.5}
+.sig b{font-size:14px;letter-spacing:-.02em}
+.sig small{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(0,0,0,.5)}
+.sig .lk{display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,0,0,.12)}
+.sig .lk img.m{height:22px;width:auto}
+.sig .lk img.w{height:9px;width:auto;filter:brightness(0)}
+.sig .lk span{font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(0,0,0,.5);margin-left:auto}
+.og{position:absolute;inset:0;background:#050505;display:flex;flex-direction:column;justify-content:center;padding:7%;gap:6%}
+.og .wm{width:92%}
+.og .row{display:flex;justify-content:space-between;align-items:center;font-size:7px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-2)}
+.og .row img{height:9px;width:auto}
+.og .bar{height:3px;background:var(--grad);border-radius:999px;width:38%}
+.tee{position:absolute;inset:0;background:#111;display:grid;place-items:center}
+.tee .shirt{width:62%;aspect-ratio:1/1.1;background:#050505;border-radius:10% 10% 6% 6%;position:relative;display:grid;place-items:center;box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+.tee .shirt::before,.tee .shirt::after{content:"";position:absolute;top:0;width:28%;height:22%;background:#050505;border-radius:40% 40% 10% 10%}
+.tee .shirt::before{left:-16%;transform:rotate(-20deg)}.tee .shirt::after{right:-16%;transform:rotate(20deg)}
+.tee .shirt img{width:22%;height:auto;position:relative;z-index:1}
+.tee .shirt small{position:absolute;bottom:12%;font-size:7px;letter-spacing:.35em;text-transform:uppercase;color:var(--fg-3);z-index:1}
+
+/* voice */
+.vocab{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.vocab div{background:var(--bg);padding:26px}
+.vocab h4{font-size:10px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;margin-bottom:16px;color:var(--peach)}
+.vocab ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.vocab li{padding:8px 14px;border:1px solid var(--line);border-radius:999px;font-size:12px}
+.vocab .no li{text-decoration:line-through;color:var(--fg-3)}
+@media(max-width:600px){.vocab{grid-template-columns:1fr}}
+.sample{padding:26px;border:1px solid var(--line);border-radius:14px}
+.sample .k{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-3);margin-bottom:12px;display:block}
+.sample p{font-size:16px;line-height:1.5}
+.sample.bad p{color:var(--fg-3)}
+
+/* assets / end */
+.files{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.files div{background:var(--bg);padding:22px;display:flex;flex-direction:column;gap:14px;min-height:160px}
+.files .pv{height:56px;display:flex;align-items:center}
+.files .pv img{height:100%;width:auto;max-width:100%}
+.files code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:var(--peach)}
+.files small{font-size:12px;color:var(--fg-2)}
+@media(max-width:900px){.files{grid-template-columns:1fr 1fr}}
+.end{padding:clamp(72px,9vw,140px) var(--gutter);display:flex;flex-direction:column;gap:30px;align-items:flex-start;position:relative;overflow:hidden;background:#0a0300}
+.end canvas{position:absolute;inset:0;width:100%;height:100%}
+.end .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.4),rgba(5,5,5,.85))}
+.end>*{position:relative;z-index:2}
+.end img.wm{width:min(100%,900px)}
+
+
+/* logo variant switch (review only) */
+.logo-switch{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:9500;display:flex;align-items:center;gap:4px;padding:4px;border-radius:999px;background:rgba(5,5,5,.8);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);font-size:9px;letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+.logo-switch span{padding:0 8px 0 10px;color:rgba(255,255,255,.5)}
+.logo-switch button{padding:8px 12px;border-radius:999px;color:rgba(255,255,255,.7);font:inherit;letter-spacing:inherit;text-transform:inherit;background:none;border:0;cursor:pointer}
+.logo-switch button.on{background:#fff;color:#000}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="rail">
+    <a class="brand" href="#cover"><img src="assets/wordmark.svg?v=1792676642" alt="SANDBOX" style="height:14px"><span>Brand Book · 2026</span></a>
+    <ol id="toc">
+      <li><a href="#c1"><i>01</i>Strategy</a></li>
+      <li><a href="#c2"><i>02</i>Voice</a></li>
+      <li><a href="#c3"><i>03</i>Logo</a></li>
+      <li><a href="#c4"><i>04</i>Color</a></li>
+      <li><a href="#c5"><i>05</i>Texture</a></li>
+      <li><a href="#c6"><i>06</i>Typography</a></li>
+      <li><a href="#c7"><i>07</i>Layout</a></li>
+      <li><a href="#c8"><i>08</i>Motion</a></li>
+      <li><a href="#c9"><i>09</i>Components</a></li>
+      <li><a href="#c10"><i>10</i>Applications</a></li>
+      <li><a href="#c11"><i>11</i>Assets</a></li>
+    </ol>
+    <div class="foot">SANDBOX by Oraseya Capital<br>Version 1.0 · October 2026<br>Source of truth: the website</div>
+  </aside>
+
+  <main class="main">
+
+    <!-- COVER -->
+    <section class="cover" id="cover">
+      <canvas id="cv1"></canvas>
+      <div class="shade"></div><div class="grain"></div>
+      <div class="top"><span class="eyebrow">Brand strategy &amp; identity guidelines</span><span class="label" style="color:rgba(255,255,255,.7)">Vol. 01 · 2026</span></div>
+      <div class="in">
+        <img class="wm" src="assets/wordmark.svg?v=1792676642" alt="SANDBOX">
+        <h1 class="display h2" style="max-width:14ch">The brand book.<br>Built from the program, written from the website.</h1>
+        <div class="meta">
+          <div><b>Oraseya Capital</b><small>Issuer</small></div>
+          <div><b>Dubai, UAE</b><small>Home</small></div>
+          <div><b>#1 investor in the UAE</b><small>MAGNiTT 2024 &amp; 2025</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 STRATEGY -->
+    <section class="chapter" id="c1">
+      <div class="ch-head"><div class="no">01</div><div><span class="eyebrow">Strategy</span><h2 class="display h2" style="margin-top:18px">This is the program.</h2><p class="lead">SANDBOX is not a course, a coworking deal or a pitch competition. It is the landmark startup investment program of a venture fund. Every brand decision starts from that fact: the fund invests, the founders work, the result is a company that can raise.</p></div></div>
+
+      <div class="two">
+        <div>
+          <span class="label">Positioning</span>
+          <p class="thesis" style="margin-top:14px">Dubai's only <em>VC-backed</em> startup investment program.</p>
+          <p class="note">Taken verbatim from the website hero. It is the one claim every other message has to support. Never soften it to "accelerator" or "bootcamp" in headline positions.</p>
+        </div>
+        <div>
+          <span class="label">The brand idea</span>
+          <p class="thesis" style="margin-top:14px">Cross the line. <em>Then multiply.</em></p>
+          <p class="note">The slashed X in the wordmark carries the idea: a founder crosses from idea to investable company, and the X is also the multiplier. The slash cuts through the box. Use the X alone wherever the brand needs a gesture and the full logo would be too much.</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="label">Audience</span>
+        <div class="two">
+          <p class="lead">Ambitious pre-Seed to Seed stage technology entrepreneurs who want to raise, in the UAE and the wider region. They are busy, sceptical of programs and allergic to fluff. They respond to proof: money, time, structure, names.</p>
+          <div class="dd">
+            <div><h4><i></i>They want to hear</h4><ul><li>How much, how long, what happens next.</li><li>Who invests and who mentors.</li><li>What previous founders say.</li><li>What the deadline is.</li></ul></div>
+            <div class="no"><h4><i></i>They do not want</h4><ul><li>"Ecosystem", "journey", "unlock".</li><li>Vague community promises.</li><li>Decorative startup imagery.</li><li>A program that talks about itself.</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="label">Messaging hierarchy, in the order the website uses it</span>
+        <div class="msg"><div class="k">01 Claim</div><div class="v">Dubai's only VC-backed startup investment program<small>The hero headline. Always present on a first contact surface; “the landmark startup investment program from Oraseya Capital” sits small beneath it.</small></div></div>
+        <div class="msg"><div class="k">02 Proof</div><div class="v">$150,000 investment · 5 epic months · Q3 2026 · #1 investor<small>The numbers. Shown together, in this order, as a stat row. The fourth is Oraseya’s ranking, always attributed.</small></div></div>
+        <div class="msg"><div class="k">03 Promise</div><div class="v">Exposure, investor-readiness, and growth<small>What the five months are for. Use as the lead paragraph.</small></div></div>
+        <div class="msg"><div class="k">04 Mechanism</div><div class="v">Two phases: Diagnostics, then Sprints<small>Application → Phase 1 → internal pitch → Phase 2 → Demo Day.</small></div></div>
+        <div class="msg"><div class="k">05 Difference</div><div class="v">Nine pillars, including Wellness+<small>"The first startup program in the region to lay emphasis on wellbeing and performance."</small></div></div>
+        <div class="msg"><div class="k">06 Ask</div><div class="v">Limited places, apply now<small>Applications close end of November. Every page ends here.</small></div></div>
+      </div>
+
+      <div class="block">
+        <span class="label">Proof points · the fund behind the program</span>
+        <div class="three">
+          <div class="comp" style="gap:14px"><div class="stat"><b>#1</b><small>Most Active Investor in the UAE</small></div><p class="note" style="margin:0">MAGNiTT, by number of deals, 2024 and again in 2025. Held in the first half of 2026.</p></div>
+          <div class="comp" style="gap:14px"><div class="stat"><b>#2</b><small>Most Active Series A Investor, MENA</small></div><p class="note" style="margin:0">MAGNiTT 2024, by number of deals.</p></div>
+          <div class="comp" style="gap:14px"><div class="stat"><b>VC Firm<br>of the Year</b><small>Entrepreneur Middle East</small></div><p class="note" style="margin:0">Awarded to Oraseya Capital, 2025.</p></div>
+        </div>
+        <div class="dd" style="margin-top:22px">
+          <div><h4><i></i>How to use it</h4><ul><li>Always as Oraseya Capital’s achievement: “Backed by the UAE’s #1 most active investor.”</li><li>Name the source and the years: MAGNiTT 2024 &amp; 2025.</li><li>One mention per surface, as a stat tile or a proof line under the Oraseya endorsement.</li><li>Pair it with the $150,000: the ranking explains why the cheque is credible.</li></ul></div>
+          <div class="no"><h4><i></i>Never</h4><ul><li>“SANDBOX is the #1 accelerator.” The ranking is the fund’s, not the program’s.</li><li>Without the source. An unsourced #1 reads as marketing.</li><li>As the headline. The claim stays “Dubai’s only VC-backed startup investment program”; the ranking is the proof under it.</li><li>In the gradient or on orange. It is typeset in white like every other number.</li></ul></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="label">Brand values, derived from the nine pillars and the founder testimonials</span>
+        <div class="pillar-list">
+          <div><b>Founder centricity</b><p>"SANDBOX is about you: our founders." The program adapts to the startup, not the other way round.</p></div>
+          <div><b>Proof over promise</b><p>Numbers, names, cohorts and quotes. If it cannot be shown, it is not said.</p></div>
+          <div><b>Intensity</b><p>Five epic months of hard work. The brand is bold, dense and fast, never cosy.</p></div>
+          <div><b>Investor readiness</b><p>Everything points to the raise: pitch reviews, datarooms, Demo Day.</p></div>
+          <div><b>Wellbeing</b><p>Wellness+ is a pillar, not a perk. Performance and mental health belong together.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 VOICE -->
+    <section class="chapter paper" id="c2">
+      <div class="ch-head"><div class="no">02</div><div><span class="eyebrow">Voice</span><h2 class="display h2" style="margin-top:18px">Bold. Direct. Founder-first.</h2><p class="lead">SANDBOX speaks like an investor who has already decided to back you and now expects you to work. Short sentences. Concrete nouns. Numbers before adjectives.</p></div></div>
+      <div class="two">
+        <div class="dd" style="background:rgba(0,0,0,.12);border-color:rgba(0,0,0,.12)">
+          <div><h4><i></i>Do</h4><ul><li>Lead with the number: "$150,000 via SAFE Note Agreement."</li><li>Address the founder as "you". Call the program "SANDBOX", all caps, in running text.</li><li>Use imperative CTAs: Apply now. Start your application.</li><li>Quote founders by name, role and company.</li><li>Say "5 epic months" exactly like that; it is a brand phrase.</li></ul></div>
+          <div class="no"><h4><i></i>Don't</h4><ul><li>Exclamation marks, except inside a founder quote.</li><li>"Empower", "unlock", "journey", "ecosystem", "synergy".</li><li>Write "Sandbox" or "sandbox" in headlines.</li><li>Promise investment to everyone; only shortlisted startups receive it.</li><li>Explain Dubai. The audience knows where it is.</li></ul></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="sample" style="border-color:rgba(0,0,0,.15)"><span class="k" style="color:rgba(0,0,0,.45)">On brand</span><p>Three stages. One shot. Submit the form, present on a screening call, pitch to the Selection Committee. Applications close end of November.</p></div>
+          <div class="sample bad" style="border-color:rgba(0,0,0,.15)"><span class="k" style="color:rgba(0,0,0,.45)">Off brand</span><p style="color:rgba(0,0,0,.45)">We're thrilled to invite passionate founders on an incredible journey to unlock their full potential in Dubai's thriving startup ecosystem!</p></div>
+          <div class="sample" style="border-color:rgba(0,0,0,.15)"><span class="k" style="color:rgba(0,0,0,.45)">Headline pattern</span><p><b>Statement. Payoff.</b> "Gain a winning edge." "A startup program like no other." "Pitch. Get funded." Two beats, the second one shorter.</p></div>
+        </div>
+      </div>
+      <div class="block">
+        <span class="label">Vocabulary</span>
+        <div class="vocab" style="background:rgba(0,0,0,.12);border-color:rgba(0,0,0,.12)">
+          <div style="background:var(--paper)"><h4>Say</h4><ul><li style="border-color:rgba(0,0,0,.15)">investment program</li><li style="border-color:rgba(0,0,0,.15)">founders</li><li style="border-color:rgba(0,0,0,.15)">investor-ready</li><li style="border-color:rgba(0,0,0,.15)">cohort</li><li style="border-color:rgba(0,0,0,.15)">Demo Day</li><li style="border-color:rgba(0,0,0,.15)">sprints</li><li style="border-color:rgba(0,0,0,.15)">diagnostics</li><li style="border-color:rgba(0,0,0,.15)">pillars</li><li style="border-color:rgba(0,0,0,.15)">SAFE Note</li><li style="border-color:rgba(0,0,0,.15)">traction</li></ul></div>
+          <div class="no" style="background:var(--paper)"><h4>Avoid</h4><ul><li style="border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.4)">incubator</li><li style="border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.4)">bootcamp</li><li style="border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.4)">entrepreneurial journey</li><li style="border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.4)">game-changing</li><li style="border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.4)">world-class (as filler)</li><li style="border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.4)">disrupt</li><li style="border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.4)">rockstar</li><li style="border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.4)">hustle</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 LOGO -->
+    <section class="chapter" id="c3">
+      <div class="ch-head"><div class="no">03</div><div><span class="eyebrow">Logo</span><h2 class="display h2" style="margin-top:18px">Mark, wordmark, endorsement.</h2><p class="lead">The logo is the wordmark with the Oraseya endorsement. The slash through the X is the only element that may break the geometry; everything else stays locked. Two weights are under review, switch them with the control at the bottom left.</p></div></div>
+
+      <div class="anatomy">
+        <span class="tag t2" style="left:18%">Wordmark</span><span class="tag t3" style="left:46%">Oraseya endorsement</span><span class="tag t4">X treatment</span>
+        <div class="lockup"><div class="txt"><img class="word" src="assets/wordmark.svg?v=1792676642" alt="SANDBOX" style="height:clamp(28px,4vw,64px)"><img class="oc" src="assets/oraseya.svg?v=1792676642" alt="Oraseya Capital" style="height:clamp(10px,1.4vw,22px)"></div></div>
+      </div>
+      <div class="three" style="margin-top:22px">
+        <div><b class="h3">Wordmark</b><p class="note">SANDBOX, wide-tracked, drawn from Plus Jakarta Sans. The X is broken into two strokes and the slash completes it, overshooting the cap height. The wordmark is a drawn asset, never typed.</p></div>
+        <div><b class="h3">Endorsement</b><p class="note">ORASEYA CAPITAL with the compass O, right-aligned under the wordmark at roughly 40% of its height. Drop it only when Oraseya is already the sender, for example inside the fund's own deck.</p></div>
+        <div><b class="h3">Three directions under review</b><p class="note"><b style="color:#fff">A, bold:</b> the medium-weight, wide-tracked cut. <b style="color:#fff">B, thin:</b> the light cut the team circled in the August review. <b style="color:#fff">C, SB compact:</b> Direction 3 from Figma, tight heavy wordmark led by the SB mark, with the mark doubling as a soft editorial watermark. One becomes the logo; the others are retired.</p></div>
+      </div>
+
+      <div class="block">
+        <span class="label">Variants A, B and C, side by side</span>
+        <div class="three">
+          <div class="surface black" style="min-height:180px"><img src="assets/wordmark.svg?v=1792676642" alt="Variant A" data-fixed style="width:min(100%,420px)"><span class="cap">A · bold · wide tracking</span></div>
+          <div class="surface black" style="min-height:180px"><img src="assets/wordmark-thin.svg?v=1792676642" alt="Variant B" data-fixed style="width:min(100%,420px)"><span class="cap">B · thin · team review, 26 Aug</span></div>
+          <div class="surface black" style="min-height:180px"><div class="lockup"><img class="mark" src="assets/sb-mark.svg?v=1792676642" alt="" style="height:52px"><img src="assets/wordmark-compact.svg?v=1792676642" alt="Variant C" data-fixed style="width:min(100%,300px)"></div><span class="cap">C · SB compact · Figma Direction 3</span></div>
+        </div>
+        <p class="note">A holds up at small sizes and on the texture; B is more elegant at poster scale and closer to the Oraseya endorsement weight. C is the compact lockup from Figma Direction 3: heavy, tight wordmark with the SB mark leading, and the mark also used large and soft as an editorial watermark across the site. Switch all three with the control at the bottom left.</p>
+      </div>
+
+      <div class="block">
+        <span class="label">Versions</span>
+        <div class="three">
+          <div class="surface black"><div class="lockup"><div class="txt"><img class="word" src="assets/wordmark.svg?v=1792676642" alt=""><img class="oc" src="assets/oraseya.svg?v=1792676642" alt=""></div></div><span class="cap">Primary · wordmark with endorsement</span></div>
+          <div class="surface black"><div class="lockup"><div class="txt" style="align-items:center"><img class="word" src="assets/wordmark.svg?v=1792676642" alt=""><img class="oc" src="assets/oraseya.svg?v=1792676642" alt=""></div></div><span class="cap">Centred · stacked and square formats</span></div>
+          <div class="surface black"><img class="word" src="assets/wordmark.svg?v=1792676642" alt="" style="height:clamp(18px,2.1vw,32px);width:auto"><span class="cap">Wordmark only · when Oraseya is the sender</span></div>
+          <div class="surface white"><div class="lockup ink"><div class="txt"><img class="word" src="assets/wordmark.svg?v=1792676642" alt=""><img class="oc" src="assets/oraseya.svg?v=1792676642" alt=""></div></div><span class="cap">Black · print, paper surfaces</span></div>
+          <div class="surface orange"><div class="lockup mono"><div class="txt"><img class="word" src="assets/wordmark.svg?v=1792676642" alt=""><img class="oc" src="assets/oraseya.svg?v=1792676642" alt=""></div></div><span class="cap" style="color:rgba(0,0,0,.6)">White · on the gradient</span></div>
+          <div class="surface photo"><div class="lockup mono"><div class="txt"><img class="word" src="assets/wordmark.svg?v=1792676642" alt=""><img class="oc" src="assets/oraseya.svg?v=1792676642" alt=""></div></div><span class="cap">White · on the blur texture</span></div>
+        </div>
+      </div>
+
+      <div class="block two">
+        <div>
+          <span class="label">Clear space</span>
+          <div style="margin-top:28px;padding-top:12px"><div class="clear"><img src="assets/wordmark.svg?v=1792676642" alt="" style="height:clamp(22px,3vw,44px);width:auto"></div></div>
+          <p class="note">Keep a margin of one S-height on all sides. Nothing enters it: not type, not the X decoration, not a photo edge.</p>
+        </div>
+        <div>
+          <span class="label">Minimum size</span>
+          <div class="minsize" style="margin-top:18px">
+            <div><img src="assets/wordmark.svg?v=1792676642" alt="" style="height:14px"><small>Wordmark 120 px / 30 mm</small></div>
+            <div><div class="lockup"><div class="txt" style="gap:3px"><img class="word" src="assets/wordmark.svg?v=1792676642" alt="" style="height:12px"><img class="oc" src="assets/oraseya.svg?v=1792676642" alt="" style="height:5px"></div></div><small>With endorsement 160 px / 40 mm</small></div>
+            <div><img src="assets/sb-mark-white.svg?v=1792676642" alt="" style="height:16px"><small>SB mark 16 px / 4 mm · edge cases</small></div>
+          </div>
+          <p class="note">Below these sizes drop the endorsement first. Only where the wordmark cannot fit (favicon, app icon, avatar) does the SB mark step in.</p>
+        </div>
+      </div>
+
+      <div class="block two">
+        <div>
+          <span class="label">The X treatment</span>
+          <div class="xrow" style="margin-top:18px"><img class="x" src="assets/x.svg?v=1792676642" alt=""><p class="note" style="margin:0">The slashed X is the brand's gesture. It appears alone as a watermark (at 6–12% opacity), as a section decoration and as a motion element. It never replaces the mark as a logo and is never filled with the gradient.</p></div>
+          <figure class="fig" style="margin-top:22px"><img src="assets/fig-xtreat.jpg?v=1792676642" alt="Five X treatment explorations"><figcaption>Explorations from the Figma file · the first cut is the chosen one</figcaption></figure>
+        </div>
+        <div>
+          <span class="label">SB mark · edge cases only</span>
+          <div class="three" style="margin-top:18px;grid-template-columns:repeat(3,1fr)">
+            <div class="surface black" style="min-height:120px;padding:20px"><img src="assets/sb-mark-white.svg?v=1792676642" alt="" style="height:44px;width:auto"><span class="cap">Favicon</span></div>
+            <div class="surface black" style="min-height:120px;padding:20px"><div style="width:56px;height:56px;border-radius:50%;background:#111;display:grid;place-items:center"><img src="assets/sb-mark-white.svg?v=1792676642" alt="" style="height:26px;width:auto"></div><span class="cap">Avatar</span></div>
+            <div class="surface white" style="min-height:120px;padding:20px"><img src="assets/sb-mark-white.svg?v=1792676642" alt="" style="height:44px;width:auto;filter:brightness(0)"><span class="cap">Print, black</span></div>
+          </div>
+          <p class="note">The fused S and B exists for the three places where a wordmark cannot fit: favicon, app or social avatar, and a stitched or stamped mark on swag. It is always flat white on black, or flat black on paper. The gradient version from the explorations is not used.</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="label">Rules</span>
+        <div class="dd">
+          <div><h4><i></i>Do</h4><ul><li>Place the full lockup on black, white or the blur texture.</li><li>Use the white version on photography and gradient.</li><li>Let the slash overshoot the cap height; that overshoot is part of the drawing.</li><li>Use the X decoration, not the SB mark, when a surface needs a gesture.</li></ul></div>
+          <div class="no"><h4><i></i>Don't</h4><ul><li>Type the wordmark in any font, including Plus Jakarta Sans.</li><li>Rotate, outline or add shadows to the wordmark.</li><li>Lead with the SB mark. It is an edge-case asset, never the logo, and never in orange.</li><li>Place the lockup over the busy middle of a photo; use the dark edge.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 COLOR -->
+    <section class="chapter" id="c4">
+      <div class="ch-head"><div class="no">04</div><div><span class="eyebrow">Color</span><h2 class="display h2" style="margin-top:18px">Black. White. One fire.</h2><p class="lead">The palette is a monochrome stage with a single orange light on it. Orange is a signal, not a background: it marks the thing to look at and the thing to do.</p></div></div>
+      <div class="swatches">
+        <div class="sw dark" style="background:#050505"><span class="pct">80</span><b>Black</b><span>#050505<br>RGB 5 5 5</span></div>
+        <div class="sw lite" style="background:#ffffff"><span class="pct">12</span><b>White</b><span>#FFFFFF<br>RGB 255 255 255</span></div>
+        <div class="sw lite" style="background:#FF6200"><span class="pct">5</span><b>Orange</b><span>#FF6200<br>RGB 255 98 0</span></div>
+        <div class="sw dark" style="background:#EC4313"><span class="pct">2</span><b>Ember</b><span>#EC4313<br>RGB 236 67 19</span></div>
+        <div class="sw lite" style="background:#FC9E64"><span class="pct">1</span><b>Peach</b><span>#FC9E64<br>RGB 252 158 100</span></div>
+        <div class="sw lite" style="background:#F4F1EC"><span class="pct">–</span><b>Paper</b><span>#F4F1EC<br>Contrast sections only</span></div>
+      </div>
+      <p class="note">The numbers are the share of a typical page. Deep red #7A0A00 and cream #FFE0CC exist only inside the texture and the gradient; never use them as flat fills.</p>
+
+      <div class="block two">
+        <div>
+          <span class="label">The gradient</span>
+          <div class="gradbar" style="margin-top:18px"><span style="left:16px">#EC4313</span><span style="left:50%;transform:translateX(-50%)">#FF6200</span><span style="right:16px">#FC9E64</span></div>
+          <p class="note">135°, three stops at 0 / 45 / 100%. Used for the mark, the primary button hover, the hot tag and the "Join the cohort" tile. Never as a text colour on orange and never as a full-page background.</p>
+          <div class="ratio" style="margin-top:22px"><div style="flex:80;background:#050505;color:#fff">Black 80</div><div style="flex:12;background:#fff;color:#000">12</div><div style="flex:5;background:#FF6200;color:#000">5</div><div style="flex:3;background:linear-gradient(90deg,#EC4313,#FC9E64);color:#000">3</div></div>
+        </div>
+        <div>
+          <span class="label">Contrast pairs that pass</span>
+          <div class="contrast" style="margin-top:18px">
+            <div style="background:#050505;color:#fff">White on black<small>AAA · body text</small></div>
+            <div style="background:#050505;color:#FC9E64">Peach on black<small>AA · accents, numbers</small></div>
+            <div style="background:#FF6200;color:#000">Black on orange<small>AA large · buttons, tags</small></div>
+            <div style="background:#F4F1EC;color:#0a0a0a">Ink on paper<small>AAA · contrast sections</small></div>
+          </div>
+          <p class="note">Orange #FF6200 on black fails AA for small text. Use peach for orange-coloured words in running copy, and keep pure orange for shapes, rules and the dot in the eyebrow.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 TEXTURE -->
+    <section class="chapter" id="c5">
+      <div class="ch-head"><div class="no">05</div><div><span class="eyebrow">Texture</span><h2 class="display h2" style="margin-top:18px">The blur is the brand's only image.</h2><p class="lead">SANDBOX does not use stock photos of founders at whiteboards. Its one visual material is motion-blurred orange light: heat, speed and a city at dusk in a single abstraction. On screen it moves; in print it is a still.</p></div></div>
+      <div class="two">
+        <div class="tex"><canvas id="cv2"></canvas><div class="ov"></div><div class="copy">Live shader<br><span class="grad-text">on screen</span></div><span class="lab">Hero · final CTA · loaders</span></div>
+        <div class="tex still"><div class="ov"></div><div class="copy">Still frame<br><span class="grad-text">in print</span></div><span class="lab">Decks · posters · social</span></div>
+      </div>
+      <div class="block two">
+        <div>
+          <span class="label">Rules</span>
+          <div class="dd" style="margin-top:18px">
+            <div><h4><i></i>Do</h4><ul><li>Always lay a black gradient over the bottom third before placing type.</li><li>Keep the streaks diagonal, bottom-left to top-right.</li><li>Use it as a full-bleed field or inside a rounded badge, nothing in between.</li><li>Add 10–15% film grain on large surfaces.</li></ul></div>
+            <div class="no"><h4><i></i>Don't</h4><ul><li>Put body copy directly on it.</li><li>Tint it purple, blue or pink. The explorations in Figma are closed.</li><li>Use it behind the paper sections; those stay flat.</li><li>Stretch it; crop it.</li></ul></div>
+          </div>
+        </div>
+        <div>
+          <span class="label">Explorations from the Figma file</span>
+          <figure class="fig" style="margin-top:18px"><img src="assets/fig-texture.jpg?v=1792676642" alt="Texture and material explorations"><figcaption>Texture and material · the flowing orange is final, the skyline is not</figcaption></figure>
+          <div class="tex sun" style="height:140px;margin-top:16px"><div class="ov"></div><span class="lab">Secondary still · "sunset" · cards and tiles</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 TYPOGRAPHY -->
+    <section class="chapter paper" id="c6">
+      <div class="ch-head"><div class="no">06</div><div><span class="eyebrow">Typography</span><h2 class="display h2" style="margin-top:18px">One family, two extremes.</h2><p class="lead">Plus Jakarta Sans is the only typeface. The brand lives at its two ends: ExtraBold, tight and large for statements; Light, wide-tracked and small for labels. The middle weights carry the reading.</p></div></div>
+      <div class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+      <div class="alphabet" style="margin-top:8px">abcdefghijklmnopqrstuvwxyz 0123456789 $%+</div>
+      <div class="alphabet light" style="margin-top:28px">ABCDEFGHIJKLM NOPQRSTUVWXYZ</div>
+      <div class="rule"></div>
+      <div class="specimen"><div class="k"><b>Display</b>ExtraBold 800<br>Tracking −0.04 em<br>Leading 0.95</div><div class="s"><div class="display" style="font-size:clamp(36px,5vw,80px)">Gain a winning edge.</div></div></div>
+      <div class="specimen"><div class="k"><b>Statement</b>SemiBold 600<br>Tracking −0.03 em<br>Leading 1.05</div><div class="s"><div style="font-weight:600;font-size:clamp(24px,3vw,44px);letter-spacing:-.03em;line-height:1.05;max-width:22ch">SANDBOX lays emphasis on exposure, investor-readiness, and growth.</div></div></div>
+      <div class="specimen"><div class="k"><b>Body</b>Regular 400<br>17–21 px<br>Leading 1.5</div><div class="s"><p style="font-size:19px;color:rgba(0,0,0,.75)">Throughout SANDBOX, founders can expect a flexible curriculum of content and a series of sprints focusing on growth and fundraising. The program sees founders develop a habit of feedback and accountability.</p></div></div>
+      <div class="specimen"><div class="k"><b>Label</b>Light 300<br>Tracking +0.32 em<br>Uppercase</div><div class="s"><span class="eyebrow">Applications close end of November</span></div></div>
+      <div class="specimen"><div class="k"><b>Number</b>ExtraLight 200<br>Tracking −0.04 em<br>Tabular figures</div><div class="s"><div class="num" style="font-size:clamp(56px,8vw,120px)">7,500<span style="font-size:.4em;vertical-align:top;color:var(--orange);font-weight:600">+</span></div></div></div>
+      <div class="block">
+        <span class="label">Scale</span>
+        <div class="tablewrap"><table class="scale">
+          <tr><th>Role</th><th>Weight</th><th>Size</th><th>Tracking</th><th>Line</th><th>Case</th><th>CSS</th></tr>
+          <tr><td>Hero / chapter</td><td>800</td><td>clamp(44px, 8.6vw, 150px)</td><td>−0.035 em</td><td>0.96</td><td>Sentence</td><td><code>.h-xl</code></td></tr>
+          <tr><td>Section title</td><td>800</td><td>clamp(38px, 6.4vw, 104px)</td><td>−0.035 em</td><td>0.96</td><td>Sentence</td><td><code>.h-lg</code></td></tr>
+          <tr><td>Sub title</td><td>800</td><td>clamp(30px, 4.2vw, 64px)</td><td>−0.035 em</td><td>0.96</td><td>Sentence</td><td><code>.h-md</code></td></tr>
+          <tr><td>Statement copy</td><td>600</td><td>clamp(28px, 4.4vw, 70px)</td><td>−0.03 em</td><td>1.08</td><td>Sentence</td><td><code>.big-copy</code></td></tr>
+          <tr><td>Card title</td><td>700</td><td>20–28 px</td><td>−0.02 em</td><td>1.1</td><td>Sentence</td><td><code>.h-sm</code></td></tr>
+          <tr><td>Lead</td><td>400</td><td>clamp(17px, 1.35vw, 22px)</td><td>0</td><td>1.55</td><td>Sentence</td><td><code>.lead</code></td></tr>
+          <tr><td>Body</td><td>400</td><td>15–18 px</td><td>0</td><td>1.5</td><td>Sentence</td><td><code>p</code></td></tr>
+          <tr><td>Eyebrow / label</td><td>300</td><td>10–12 px</td><td>+0.32 to +0.42 em</td><td>1</td><td>UPPER</td><td><code>.eyebrow .mono</code></td></tr>
+          <tr><td>Button</td><td>600</td><td>13 px</td><td>+0.2 em</td><td>1</td><td>UPPER</td><td><code>.btn</code></td></tr>
+          <tr><td>Big number</td><td>200 / 800</td><td>40–160 px</td><td>−0.04 em</td><td>1</td><td>Tabular</td><td><code>.num .stats b</code></td></tr>
+        </table></div>
+        <p class="note">Weights 200 and 800 are the brand; 300 for labels, 400 for reading, 600 and 700 for statements and card titles. Weight 500 appears only in navigation.</p>
+      </div>
+    </section>
+
+    <!-- 07 LAYOUT -->
+    <section class="chapter" id="c7">
+      <div class="ch-head"><div class="no">07</div><div><span class="eyebrow">Layout</span><h2 class="display h2" style="margin-top:18px">Black stage, paper interludes.</h2><p class="lead">Pages are long, dark and generous. Every third or fourth section flips to paper to reset the eye, then the page returns to black. Content sits on a 1680 px max-width grid with gutters that scale from 20 to 72 px.</p></div></div>
+      <div class="two">
+        <div>
+          <span class="label">Page rhythm, as built on the website</span>
+          <div style="margin-top:18px;display:flex;flex-direction:column;gap:3px">
+            <div style="height:70px;background:linear-gradient(135deg,#7A0A00,#FF6200);border-radius:6px;display:flex;align-items:flex-end;padding:8px 12px;font-size:9px;letter-spacing:.3em;text-transform:uppercase">Hero · texture</div>
+            <div style="height:14px;background:#111;border-radius:4px"></div>
+            <div style="height:60px;background:#0c0c0c;border:1px solid var(--line);border-radius:6px;display:flex;align-items:flex-end;padding:8px 12px;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-3)">Intro · statement copy · stats</div>
+            <div style="height:70px;background:#f4f1ec;color:#000;border-radius:6px;display:flex;align-items:flex-end;padding:8px 12px;font-size:9px;letter-spacing:.3em;text-transform:uppercase">Paper · benefits grid</div>
+            <div style="height:60px;background:#0c0c0c;border:1px solid var(--line);border-radius:6px;display:flex;align-items:flex-end;padding:8px 12px;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-3)">Structure · pillars · testimonials</div>
+            <div style="height:60px;background:#f4f1ec;color:#000;border-radius:6px;display:flex;align-items:flex-end;padding:8px 12px;font-size:9px;letter-spacing:.3em;text-transform:uppercase">Paper · track record, team</div>
+            <div style="height:50px;background:#0c0c0c;border:1px solid var(--line);border-radius:6px;display:flex;align-items:flex-end;padding:8px 12px;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-3)">Partners · FAQ</div>
+            <div style="height:70px;background:linear-gradient(135deg,#7A0A00,#FF6200);border-radius:6px;display:flex;align-items:flex-end;padding:8px 12px;font-size:9px;letter-spacing:.3em;text-transform:uppercase">Final CTA · texture</div>
+          </div>
+        </div>
+        <div>
+          <span class="label">Grid and spacing</span>
+          <div class="tablewrap" style="margin-top:18px"><table class="scale">
+            <tr><th>Token</th><th>Value</th><th>Use</th></tr>
+            <tr><td>Max width</td><td>1680 px</td><td>All content, centred</td></tr>
+            <tr><td>Gutter</td><td>clamp(20px, 4vw, 72px)</td><td>Page sides</td></tr>
+            <tr><td>Section padding</td><td>clamp(96px, 14vw, 200px)</td><td>Top and bottom of every section</td></tr>
+            <tr><td>Column gap</td><td>clamp(32px, 6vw, 120px)</td><td>Two-column editorial grids</td></tr>
+            <tr><td>Card gap</td><td>clamp(16px, 2vw, 28px)</td><td>Card rows, logo grids</td></tr>
+            <tr><td>Hairline</td><td>1 px, white 12%</td><td>All dividers and grids on black</td></tr>
+            <tr><td>Radius</td><td>22 px cards · 999 px pills · 0 grids</td><td>Cards round, structure square</td></tr>
+          </table></div>
+          <p class="note">Grids of equal cells (pillars, team, partners) use 1 px hairlines and no radius. Only free-floating objects (cards, buttons, quotes) get rounded corners.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 MOTION -->
+    <section class="chapter" id="c8">
+      <div class="ch-head"><div class="no">08</div><div><span class="eyebrow">Motion</span><h2 class="display h2" style="margin-top:18px">Everything arrives.</h2><p class="lead">Nothing on a SANDBOX surface simply appears. Type rises out of a mask, numbers count, the wordmark wipes in and the slash lands last. Motion is fast, heavy and resolved: long expo ease-outs, no bounces, no loops except marquees.</p></div></div>
+      <div class="ease-wrap">
+        <div><svg viewBox="0 0 200 120"><path d="M10 110 C 20 10, 60 10, 190 10" fill="none" stroke="#FF6200" stroke-width="2"/><path d="M10 110 L190 110 M10 110 L10 10" stroke="rgba(255,255,255,.2)"/></svg><b>expo.out</b><small>Entrances · 1.0–1.6 s · the default</small></div>
+        <div><svg viewBox="0 0 200 120"><path d="M10 110 C 100 110, 100 10, 190 10" fill="none" stroke="#FC9E64" stroke-width="2"/><path d="M10 110 L190 110 M10 110 L10 10" stroke="rgba(255,255,255,.2)"/></svg><b>expo.inOut</b><small>Wipes, curtains, menu · 0.8–1.0 s</small></div>
+        <div><svg viewBox="0 0 200 120"><path d="M10 110 L190 10" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 110 L190 110 M10 110 L10 10" stroke="rgba(255,255,255,.2)"/></svg><b>none (scrub)</b><small>Scroll-bound: parallax, progress lines, horizontal tracks</small></div>
+      </div>
+      <div class="block">
+        <span class="label">Signature moves · hover or tap to replay</span>
+        <div class="moves">
+          <div class="move" data-move="wipe"><div class="stage"><img src="assets/wordmark.svg?v=1792676642" alt="" style="width:80%;clip-path:inset(0 100% 0 0)" class="m-wipe"></div><div><b>Wordmark wipe</b><p>Clip from left to right, then the slash drops in from top-right.</p><div class="code">clip-path inset · 1.6 s expo.inOut · slash 1.2 s expo.out</div></div></div>
+          <div class="move" data-move="lines"><div class="stage" style="flex-direction:column;align-items:flex-start;gap:2px"><span style="display:block;overflow:hidden"><span class="m-line" style="display:block;font-weight:800;font-size:28px;letter-spacing:-.04em;line-height:1;transform:translateY(110%)">Three stages.</span></span><span style="display:block;overflow:hidden"><span class="m-line" style="display:block;font-weight:800;font-size:28px;letter-spacing:-.04em;line-height:1;color:var(--peach);transform:translateY(110%)">One shot.</span></span></div><div><b>Line rise</b><p>Headlines rise out of an overflow mask, line by line.</p><div class="code">y 110% → 0 · 1.3 s expo.out · stagger 0.1 s</div></div></div>
+          <div class="move" data-move="count"><div class="stage"><div class="num m-count" style="font-size:56px;font-weight:800">0</div></div><div><b>Count up</b><p>Numbers count from zero when they enter the viewport.</p><div class="code">2 s power3.out · tabular-nums · once</div></div></div>
+          <div class="move" data-move="words"><div class="stage"><p class="m-words" style="font-weight:600;font-size:17px;letter-spacing:-.02em;line-height:1.2;max-width:26ch">SANDBOX is the landmark startup investment program from Oraseya Capital.</p></div><div><b>Word reveal</b><p>Statement copy fades in word by word as the reader scrolls.</p><div class="code">opacity .12 → 1 per word · scrubbed to scroll</div></div></div>
+          <div class="move" data-move="magnet"><div class="stage"><button class="btn btn-solid m-magnet" type="button"><span class="lbl"><span>Apply now</span><span>Apply now</span></span></button></div><div><b>Magnetic button</b><p>Buttons lean toward the cursor and the label rolls on hover.</p><div class="code">translate ±35% of offset · 0.6 s power3 · elastic release</div></div></div>
+          <div class="move" data-move="slash"><div class="stage"><img src="assets/x.svg?v=1792676642" alt="" class="m-slash" style="height:80px;opacity:0;transform:translate(40px,-40px) rotate(12deg)"></div><div><b>Slash entry</b><p>The X lands from top-right, slightly rotated, and settles.</p><div class="code">x 60 y −60 rot 12° → 0 · 1.2 s expo.out</div></div></div>
+        </div>
+      </div>
+      <div class="block two">
+        <div class="dd">
+          <div><h4><i></i>Do</h4><ul><li>One orchestrated entrance per view, then calm.</li><li>Scroll-bound effects move with the reader and stop when they stop.</li><li>Honour prefers-reduced-motion: show everything at rest.</li><li>Keep marquees slow (0.5–1.2 px per frame) and pausable.</li></ul></div>
+          <div class="no"><h4><i></i>Don't</h4><ul><li>Bounce, wobble or spring, except the release of a magnetic button.</li><li>Fade in from opacity 0 without a direction.</li><li>Animate colour; animate position, clip and scale.</li><li>Autoplay sound, ever.</li></ul></div>
+        </div>
+        <div>
+          <span class="label">Timing table</span>
+          <div class="tablewrap" style="margin-top:18px"><table class="scale">
+            <tr><th>Moment</th><th>Duration</th><th>Ease</th></tr>
+            <tr><td>Preloader total</td><td>3.0 s</td><td>counter power2.inOut</td></tr>
+            <tr><td>Hero entrance</td><td>1.8 s</td><td>expo.out, staggered</td></tr>
+            <tr><td>Section reveal</td><td>1.3 s</td><td>expo.out</td></tr>
+            <tr><td>Hover states</td><td>0.4–0.6 s</td><td>cubic-bezier(.16,1,.3,1)</td></tr>
+            <tr><td>Menu open / close</td><td>0.9 / 0.8 s</td><td>expo.inOut</td></tr>
+            <tr><td>Smooth scroll lerp</td><td>0.085</td><td>Lenis</td></tr>
+          </table></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 COMPONENTS -->
+    <section class="chapter" id="c9">
+      <div class="ch-head"><div class="no">09</div><div><span class="eyebrow">Components</span><h2 class="display h2" style="margin-top:18px">The kit, live.</h2><p class="lead">Every piece below is the real CSS from the website. Hover them. They are the vocabulary for any new page, deck slide or social frame.</p></div></div>
+      <div class="two">
+        <div class="comp"><span class="label">Buttons</span><div class="demo"><button class="btn btn-solid" type="button"><span class="lbl"><span>Apply now</span><span>Apply now</span></span><svg style="position:relative;z-index:2;width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></button><button class="btn btn-ghost" type="button"><span class="lbl"><span>How it works</span><span>How it works</span></span></button></div><p class="note">Solid white is the primary; it turns to gradient on hover. Ghost is secondary and fills white. Only one primary per view.</p></div>
+        <div class="comp"><span class="label">Eyebrow, tags</span><div class="demo"><span class="eyebrow">What differentiates SANDBOX?</span></div><div class="demo"><span class="tag">Diagnostics · PMF · Positioning</span><span class="tag hot">$150,000 SAFE</span></div><p class="note">The eyebrow always carries the orange dash. The hot tag is reserved for money and deadlines.</p></div>
+        <div class="comp"><span class="label">Stat</span><div class="demo" style="gap:48px"><div class="stat"><b>7,500<sup>+</sup></b><small>Applications to date</small></div><div class="stat"><b>$150K</b><small>Investment</small></div></div><p class="note">Big number, orange plus sign, tracked label below. Always in a row of three or five, divided by hairlines.</p></div>
+        <div class="comp"><span class="label">Quote</span><figure class="quote"><div class="m">“</div><p>If you know your WHY, SANDBOX is a good place to learn HOW! A place to make 0 to 1.</p><footer><i>ES</i><span><b>Enver Sorkun</b>former CEO &amp; Founder, Bitocast</span></footer></figure></div>
+        <div class="comp"><span class="label">Benefit tile · paper sections</span><div class="demo"><article class="card"><img class="x" src="assets/x.svg?v=1792676642" alt=""><div class="n">02</div><p>Tens of hours of workshops covering 9 pillars</p></article><article class="card accent"><img class="x" src="assets/x.svg?v=1792676642" alt=""><div class="n">04</div><p>Coworking space for you and your team</p></article></div></div>
+        <div class="comp"><span class="label">Pillar tile · hover spotlight</span><article class="pillar"><div class="i">05<img src="assets/x.svg?v=1792676642" alt=""></div><div><h4>Wellness+</h4><p>Being a founder is incredibly stressful. SANDBOX prioritizes the mental health of you and your team.</p></div></article></div>
+      </div>
+    </section>
+
+    <!-- 10 APPLICATIONS -->
+    <section class="chapter paper" id="c10">
+      <div class="ch-head"><div class="no">10</div><div><span class="eyebrow">Applications</span><h2 class="display h2" style="margin-top:18px">The same system, every surface.</h2><p class="lead">Six quick builds from the kit. None of them needs a new element: texture, wordmark, one statement, one number, one ask.</p></div></div>
+      <div class="apps">
+        <figure class="app"><div class="cv"><div class="post"><img class="wm" src="assets/wordmark.svg?v=1792676642" alt=""><div class="big">$150K<br>for <em>pre-Seed</em><br>founders.</div><div class="foot"><span>Applications close end of Nov</span><img src="assets/oraseya.svg?v=1792676642" alt=""></div></div></div><figcaption>Instagram · 1:1</figcaption></figure>
+        <figure class="app"><div class="cv wide"><div class="slide"><div class="top"><img src="assets/wordmark.svg?v=1792676642" alt=""><span>Program structure · 04</span></div><div class="h">A startup program like <span class="grad-text">no other.</span></div><div class="stats"><div><b><em>$</em>150,000</b><small>Investment</small></div><div><b>5 <em>epic</em> months</b><small>Of hard work</small></div><div><b>Q3 2026</b><small>Commences</small></div></div></div></div><figcaption>Keynote slide · 16:9</figcaption></figure>
+        <figure class="app"><div class="cv"><div class="badge"><div class="in"><img class="m" src="assets/wordmark.svg?v=1792676642" alt="" style="width:62%"><div class="nm">Luigi Senese<small>AI Gen Lab · Founder</small></div><span class="pill">Cohort SB26</span></div></div></div><figcaption>Cohort badge · A6</figcaption></figure>
+        <figure class="app"><div class="cv wide"><div class="og"><img class="wm" src="assets/wordmark.svg?v=1792676642" alt=""><div class="bar"></div><div class="row"><span>Dubai's only VC-backed startup investment program</span><img src="assets/oraseya.svg?v=1792676642" alt=""></div></div></div><figcaption>Link preview · 1200 × 630</figcaption></figure>
+        <figure class="app"><div class="cv"><div class="sig"><b>Elliott Denham</b><small>Head of Programs</small><span>programs@oraseyacapital.com<br>sandboxaccelerator.com</span><div class="lk"><img class="w" src="assets/wordmark.svg?v=1792676642" alt=""><span>By Oraseya Capital</span></div></div></div><figcaption>Email signature</figcaption></figure>
+        <figure class="app"><div class="cv"><div class="tee"><div class="shirt"><img src="assets/wordmark.svg?v=1792676642" alt="" style="width:62%"><small>Cohort 26</small></div></div></div><figcaption>Swag · wordmark</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 11 ASSETS -->
+    <section class="chapter" id="c11">
+      <div class="ch-head"><div class="no">11</div><div><span class="eyebrow">Assets</span><h2 class="display h2" style="margin-top:18px">Files and tokens.</h2><p class="lead">Everything in this book ships with the website folder. Vector where it can be, raster only for the texture stills.</p></div></div>
+      <div class="files">
+        <div><div class="pv"><img src="assets/wordmark.svg?v=1792676642" alt="" data-fixed></div><code>assets/wordmark.svg?v=1792676642</code><small>Wordmark A, bold, white. Letters and slash are separate groups for animation.</small></div>
+        <div><div class="pv"><img src="assets/wordmark-thin.svg?v=1792676642" alt="" data-fixed></div><code>assets/wordmark-thin.svg?v=1792676642</code><small>Wordmark B, thin, white. Slash is part of the X.</small></div>
+        <div><div class="pv"><img src="assets/sb-mark-white.svg?v=1792676642" alt="" style="height:40px"></div><code>assets/sb-mark-white.svg?v=1792676642</code><small>SB mark, flat white. Favicon, avatar, swag only.</small></div>
+        <div><div class="pv" style="background:url(assets/blur.jpg?v=1792676642) center/cover;border-radius:6px;width:100px"></div><code>assets/blur.jpg?v=1792676642</code><small>Texture still, 2200 px. Diagonal streaks.</small></div>
+        <div><div class="pv" style="background:url(assets/sunset.jpg?v=1792676642) center/cover;border-radius:6px;width:100px"></div><code>assets/sunset.jpg?v=1792676642</code><small>Secondary still, 1400 px. Cards and tiles.</small></div>
+        <div><div class="pv"><img src="assets/oraseya.svg?v=1792676642" alt=""></div><code>assets/oraseya.svg?v=1792676642</code><small>Endorsement, white.</small></div>
+        <div><div class="pv"><img src="assets/x.svg?v=1792676642" alt="" style="height:40px"></div><code>assets/x.svg?v=1792676642</code><small>The X treatment, white. Decoration.</small></div>
+        <div><div class="pv" style="font-weight:800;font-size:28px;letter-spacing:-.04em">Aa</div><code>Plus Jakarta Sans</code><small>Google Fonts, weights 200–800. Fallback: system-ui.</small></div>
+        <div><div class="pv" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--peach)">:root{…}</div><code>index.html · :root</code><small>Colour, type and spacing tokens as CSS custom properties.</small></div>
+      </div>
+      <div class="block">
+        <span class="label">Design tokens</span>
+        <div class="tablewrap"><table class="scale">
+          <tr><th>Token</th><th>Value</th><th>Token</th><th>Value</th></tr>
+          <tr><td><code>--black</code></td><td>#050505</td><td><code>--orange</code></td><td>#FF6200</td></tr>
+          <tr><td><code>--white</code></td><td>#FFFFFF</td><td><code>--orange-2</code> (ember)</td><td>#EC4313</td></tr>
+          <tr><td><code>--paper</code></td><td>#F4F1EC</td><td><code>--peach</code></td><td>#FC9E64</td></tr>
+          <tr><td><code>--ember</code> (deep)</td><td>#7A0A00</td><td><code>--cream</code></td><td>#FFE0CC</td></tr>
+          <tr><td><code>--grad</code></td><td>linear-gradient(135deg,#EC4313 0%,#FF6200 45%,#FC9E64 100%)</td><td><code>--ease</code></td><td>cubic-bezier(.16,1,.3,1)</td></tr>
+          <tr><td><code>--font</code></td><td>'Plus Jakarta Sans', system-ui, sans-serif</td><td><code>--gutter</code></td><td>clamp(20px,4vw,72px)</td></tr>
+        </table></div>
+      </div>
+      <div class="block">
+        <span class="label">Contact</span>
+        <p class="lead">Brand questions and asset requests: programs@oraseyacapital.com. The website at sandboxaccelerator.com is the reference implementation; when this book and the site disagree, the site wins and the book gets updated.</p>
+      </div>
+    </section>
+
+<div class="logo-switch" id="logoSwitch" aria-label="Logo variant"><span>Logo</span><button data-v="bold">A Bold</button><button data-v="thin">B Thin</button><button data-v="compact">C Compact</button></div>
+    <section class="end">
+      <canvas id="cv3"></canvas><div class="ov"></div>
+      <span class="eyebrow">End of Vol. 01</span>
+      <img class="wm" src="assets/wordmark.svg?v=1792676642" alt="SANDBOX">
+      <img src="assets/oraseya.svg?v=1792676642" alt="Oraseya Capital" style="height:16px;width:auto">
+    </section>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+/* shader (same as the website) */
+const VERT=`attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}`;
+const FRAG=`precision highp float;
+uniform vec2 uRes;uniform float uTime;uniform vec2 uMouse;uniform float uSeed;
+float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
+float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+ float a=hash(i),b=hash(i+vec2(1,0)),c=hash(i+vec2(0,1)),d=hash(i+vec2(1,1));
+ return mix(mix(a,b,f.x),mix(c,d,f.x),f.y);}
+float fbm(vec2 p){float v=0.,a=.5;mat2 m=mat2(1.6,1.2,-1.2,1.6);
+ for(int i=0;i<5;i++){v+=a*noise(p);p=m*p;a*=.5;}return v;}
+void main(){
+ vec2 uv=gl_FragCoord.xy/uRes;vec2 p=uv;p.x*=uRes.x/uRes.y;
+ float t=uTime*.07+uSeed;
+ float ang=-.55+uMouse.x*.08;mat2 R=mat2(cos(ang),-sin(ang),sin(ang),cos(ang));
+ vec2 q=R*(p-vec2(.5*uRes.x/uRes.y,.5));q+=(uMouse-.5)*.12;
+ vec2 s=vec2(q.x*.42,q.y*1.15);
+ vec2 w=vec2(fbm(s*2.2+t),fbm(s*2.2-t*.8+7.3));
+ float n=fbm(s*2.6+w*1.6+t*.3);
+ float streak=fbm(vec2(q.x*9.,q.y*.55-t*1.8));
+ float soft=fbm(vec2(q.x*2.,q.y*.3+t*.5));
+ vec3 c0=vec3(.20,.015,0.);vec3 c1=vec3(.60,.06,.0);vec3 c2=vec3(.925,.262,.074);
+ vec3 c3=vec3(1.,.384,0.);vec3 c4=vec3(.988,.62,.39);vec3 c5=vec3(1.,.86,.72);
+ vec3 col=mix(c0,c1,smoothstep(.12,.34,n));col=mix(col,c2,smoothstep(.30,.48,n));
+ col=mix(col,c3,smoothstep(.44,.64,n));col=mix(col,c4,smoothstep(.62,.86,n));
+ col+=c4*.35*smoothstep(.55,.95,streak)*smoothstep(.3,.8,soft);
+ col+=c5*.18*smoothstep(.78,1.,streak*n*1.6);
+ float v=1.-smoothstep(.35,1.15,length(uv-vec2(.5,.45))*1.25);col*=mix(.6,1.12,v);
+ col+=(hash(gl_FragCoord.xy+uTime)-.5)*.035;
+ gl_FragColor=vec4(col,1.);}`;
+function makeShader(canvas,seed){
+  const gl=canvas.getContext('webgl',{antialias:false,alpha:false});if(!gl)return null;
+  const sh=(t,s)=>{const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);return gl.getShaderParameter(o,gl.COMPILE_STATUS)?o:null;};
+  const vs=sh(gl.VERTEX_SHADER,VERT),fs=sh(gl.FRAGMENT_SHADER,FRAG);if(!vs||!fs)return null;
+  const pr=gl.createProgram();gl.attachShader(pr,vs);gl.attachShader(pr,fs);gl.linkProgram(pr);gl.useProgram(pr);
+  const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+  const loc=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  const uRes=gl.getUniformLocation(pr,'uRes'),uTime=gl.getUniformLocation(pr,'uTime'),uMouse=gl.getUniformLocation(pr,'uMouse'),uSeed=gl.getUniformLocation(pr,'uSeed');
+  gl.uniform1f(uSeed,seed);
+  const st={visible:true,mouse:[.5,.5],target:[.5,.5]};
+  const resize=()=>{const dpr=Math.min(devicePixelRatio,1.5)*.6;canvas.width=Math.max(2,Math.floor(canvas.clientWidth*dpr));canvas.height=Math.max(2,Math.floor(canvas.clientHeight*dpr));gl.viewport(0,0,canvas.width,canvas.height);gl.uniform2f(uRes,canvas.width,canvas.height);};
+  resize();addEventListener('resize',resize);const start=performance.now();
+  st.draw=()=>{if(!st.visible)return;st.mouse[0]+=(st.target[0]-st.mouse[0])*.04;st.mouse[1]+=(st.target[1]-st.mouse[1])*.04;gl.uniform1f(uTime,(performance.now()-start)/1000);gl.uniform2f(uMouse,st.mouse[0],st.mouse[1]);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);};
+  new IntersectionObserver(e=>{st.visible=e[0].isIntersecting;}).observe(canvas);return st;
+}
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const shaders=[['cv1',0],['cv2',2.1],['cv3',4.2]].map(([id,s])=>{const c=document.getElementById(id);const st=makeShader(c,s);if(!st){c.style.background='url(assets/blur.jpg?v=1792676642) center/cover';}return st;}).filter(Boolean);
+if(!reduce){gsap.ticker.add(()=>shaders.forEach(s=>s.draw()));}else{shaders.forEach(s=>s.draw());}
+addEventListener('pointermove',e=>{const x=e.clientX/innerWidth,y=1-e.clientY/innerHeight;shaders.forEach(s=>s.target=[x,y]);});
+
+/* reveals */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.block, .ch-head, .two > *, .three > *, .apps > *').forEach(el=>{el.classList.add('rv');io.observe(el);});
+
+/* toc highlight */
+const links=[...document.querySelectorAll('#toc a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const tio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const i=secs.indexOf(e.target);links.forEach(l=>l.classList.remove('on'));if(links[i]){links[i].classList.add('on');links[i].scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});}}});},{rootMargin:'-40% 0px -55% 0px'});
+secs.forEach(s=>s&&tio.observe(s));
+
+/* pillar spotlight */
+document.querySelectorAll('.pillar').forEach(p=>p.addEventListener('pointermove',e=>{const r=p.getBoundingClientRect();p.style.setProperty('--mx',(e.clientX-r.left)+'px');p.style.setProperty('--my',(e.clientY-r.top)+'px');}));
+
+/* motion demos */
+const demos={
+  wipe:el=>{const w=el.querySelector('.m-wipe');gsap.fromTo(w,{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)',duration:1.6,ease:'power4.inOut'});},
+  lines:el=>gsap.fromTo(el.querySelectorAll('.m-line'),{y:'110%'},{y:0,duration:1.3,stagger:.1,ease:'expo.out'}),
+  count:el=>{const n=el.querySelector('.m-count');const o={v:0};gsap.to(o,{v:7500,duration:2,ease:'power3.out',onUpdate:()=>n.textContent=Math.round(o.v).toLocaleString('en-US')});},
+  words:el=>{const p=el.querySelector('.m-words');if(!p.dataset.split){p.innerHTML=p.textContent.split(' ').map(w=>`<span style="display:inline-block;opacity:.12">${w}</span>`).join(' ');p.dataset.split=1;}gsap.fromTo(p.children,{opacity:.12},{opacity:1,duration:.4,stagger:.06,ease:'none'});},
+  magnet:el=>{const b=el.querySelector('.m-magnet');gsap.fromTo(b,{x:-14,y:8},{x:0,y:0,duration:.9,ease:'elastic.out(1,.4)'});},
+  slash:el=>gsap.fromTo(el.querySelector('.m-slash'),{opacity:0,x:40,y:-40,rotate:12},{opacity:1,x:0,y:0,rotate:0,duration:1.2,ease:'expo.out'})
+};
+document.querySelectorAll('.move').forEach(m=>{
+  const run=()=>demos[m.dataset.move]&&demos[m.dataset.move](m);
+  m.addEventListener('pointerenter',run);m.addEventListener('click',run);
+  new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){run();o.disconnect();}},{threshold:.5}).observe(m);
+});
+const mb=document.querySelector('.m-magnet');
+mb.addEventListener('pointermove',e=>{const r=mb.getBoundingClientRect();gsap.to(mb,{x:(e.clientX-r.left-r.width/2)*.35,y:(e.clientY-r.top-r.height/2)*.35,duration:.6,ease:'power3.out'});});
+mb.addEventListener('pointerleave',()=>gsap.to(mb,{x:0,y:0,duration:.9,ease:'elastic.out(1,.4)'}));
+
+/* ═════ logo variant A/B (review only) ═════ */
+(function(){
+  const sw=document.getElementById('logoSwitch');if(!sw)return;
+  const imgs=[...document.querySelectorAll('img[src*="wordmark"]:not([data-fixed])')];
+  const inline=document.querySelector('svg.wm');
+  let bold=inline?inline.innerHTML:null, boldVB=inline?inline.getAttribute('viewBox'):null, thinSVG=null;
+  function apply(v){
+    const FILE={bold:'wordmark.svg',thin:'wordmark-thin.svg',compact:'wordmark-compact.svg'}[v]||'wordmark.svg';
+    imgs.forEach(i=>i.src=i.src.replace(/wordmark(-thin|-compact)?\.svg/, FILE));
+    sw.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+    document.documentElement.dataset.logo=v;
+    try{localStorage.setItem('sbLogo',v);}catch(e){}
+    if(inline){
+      if(v==='bold'){inline.innerHTML=bold;inline.setAttribute('viewBox',boldVB);const L=inline.querySelector('#letters');if(L&&document.getElementById('loader')&&getComputedStyle(document.getElementById('loader')).display==='none')L.style.clipPath='inset(0 0 0 0)';const S=inline.querySelector('.slash');if(S&&L&&L.style.clipPath)S.style.opacity=1,S.style.transform='none';}
+      else{
+        const put=t=>{const d=new DOMParser().parseFromString(t,'image/svg+xml').documentElement;inline.setAttribute('viewBox',d.getAttribute('viewBox'));inline.innerHTML=d.innerHTML;const L=inline.querySelector('#letters');if(L)L.style.clipPath='inset(0 0 0 0)';};
+        thinSVG?put(thinSVG):fetch('assets/wordmark-thin.svg?v=1792676642').then(r=>r.text()).then(t=>{thinSVG=t;put(t);}).catch(()=>{});
+      }
+    }
+  }
+  let v='bold';try{v=localStorage.getItem('sbLogo')||'bold';}catch(e){}
+  const q=(location.hash.match(/^#logo-(thin|bold|compact)$/)||[])[1]; if(q)v=q;
+  sw.addEventListener('click',e=>{const b=e.target.closest('button');if(b)apply(b.dataset.v);});
+  apply(v);
+})();
+
+</script>
+</body>
+</html>
